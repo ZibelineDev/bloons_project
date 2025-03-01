@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b56y4ugo6mni"]
+
+[ext_resource type="Texture2D" uid="uid://pb8y81dnnlxg" path="res://assets/textures/world_placeholder.png" id="1_dphjl"]
+[ext_resource type="Texture2D" uid="uid://dqgdiavrlcgxw" path="res://assets/textures/path_placeholder.png" id="2_sl2e5"]
+[ext_resource type="Script" uid="uid://ctf20c6lwfmcy" path="res://scenes/world/balloon_path.gd" id="3_1fp7r"]
+[ext_resource type="PackedScene" uid="uid://dv7ks0wr8gaga" path="res://components/turret/turret.tscn" id="4_6m72w"]
+
+[sub_resource type="Curve2D" id="Curve2D_sl2e5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -30, 336, 0, 0, 0, 0, 150, 340, 0, 0, 0, 0, 154, 178, 0, 0, 0, 0, 308, 172, 0, 0, 0, 0, 308, 551, 0, 0, 0, 0, 84, 551, 0, 0, 0, 0, 78, 653, 0, 0, 0, 0, 679, 643, 0, 0, 0, 0, 673, 469, 0, 0, 0, 0, 499, 469, 0, 0, 0, 0, 503, 326, 0, 0, 0, 0, 769, 305, 0, 0, 0, 0, 755, 162, 0, 0, 0, 0, 499, 141, 0, 0, 0, 0, 478, -33)
+}
+point_count = 15
+
+[node name="World" type="Node2D"]
+
+[node name="WorldPlaceholder" type="Sprite2D" parent="."]
+texture = ExtResource("1_dphjl")
+centered = false
+
+[node name="PathPlaceholder" type="Sprite2D" parent="."]
+texture = ExtResource("2_sl2e5")
+centered = false
+
+[node name="Turret" parent="." instance=ExtResource("4_6m72w")]
+position = Vector2(235, 97)
+
+[node name="Turret2" parent="." instance=ExtResource("4_6m72w")]
+position = Vector2(143, 602)
+
+[node name="BalloonPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_sl2e5")
+script = ExtResource("3_1fp7r")

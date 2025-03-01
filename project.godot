@@ -11,8 +11,40 @@ config_version=5
 [application]
 
 config/name="bloons_project"
+run/main_scene="uid://csaoulddv4ffh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Sounds="*res://scenes/sounds/sounds.tscn"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+
+[display]
+
+window/size/viewport_height=864
+window/size/resizable=false
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://components/": "orange",
+"res://scenes/": "blue",
+"res://scenes/game/": "gray",
+"res://scenes/user_interface/": "green"
+}
+
+[layer_names]
+
+2d_physics/layer_1="Physical Collision"
+2d_physics/layer_2="Balloon Layer"
 
 [rendering]
 

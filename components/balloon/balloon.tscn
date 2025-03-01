@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://7tgh7f8vdhwo"]
+
+[ext_resource type="Script" uid="uid://dc0bptcwx05pf" path="res://components/balloon/balloon.gd" id="1_kgbnr"]
+[ext_resource type="Texture2D" uid="uid://xgftqxd2trj0" path="res://assets/textures/balloon_placeholder.png" id="2_r4c4m"]
+[ext_resource type="Script" uid="uid://fl8wuxo08ka3" path="res://components/balloon/static_body_2d.gd" id="3_4vf2m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jupt"]
+radius = 18.1108
+
+[node name="Balloon" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_kgbnr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_r4c4m")
+
+[node name="StaticBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_4vf2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_7jupt")
+debug_color = Color(0, 0.626435, 0.511177, 0.42)
