@@ -73,16 +73,16 @@ func spawn_wave_02() -> void :
 	var timer : float
 	
 	for index : int in range(20) : 
-		add_child(Balloon.create())
-		timer = randf_range(0.05, 0.2)
+		add_child(Balloon.create(0))
+		timer = randf_range(0.1, 0.3)
 		await get_tree().create_timer(timer).timeout
 	
 	timer = 3.0
 	await get_tree().create_timer(timer).timeout
 	
-	for index : int in range(20) : 
-		add_child(Balloon.create())
-		timer = randf_range(0.05, 0.2)
+	for index : int in range(15) : 
+		add_child(Balloon.create(1))
+		timer = randf_range(0.1, 0.3)
 		await get_tree().create_timer(timer).timeout
 	
 	spawn_completed = true
