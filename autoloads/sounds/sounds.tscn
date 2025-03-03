@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://e7uu54odx5ac"]
 
 [ext_resource type="AudioStream" uid="uid://dkkpjtr2q2uo6" path="res://assets/sounds/pew_1.wav" id="1_hbubl"]
-[ext_resource type="Script" uid="uid://bw2mi81lnvopl" path="res://scenes/sounds/sounds.gd" id="1_mg7lp"]
+[ext_resource type="Script" uid="uid://bw2mi81lnvopl" path="res://autoloads/sounds/sounds.gd" id="1_mg7lp"]
 [ext_resource type="AudioStream" uid="uid://b1jm5wd5uek6x" path="res://assets/sounds/pew_2.wav" id="2_mg7lp"]
 [ext_resource type="AudioStream" uid="uid://dnja2aus5edwi" path="res://assets/sounds/pew_3.wav" id="3_d8djq"]
 [ext_resource type="AudioStream" uid="uid://dgf4wmuvn64d4" path="res://assets/sounds/pew_4.wav" id="4_ak2ut"]
@@ -24,6 +24,7 @@ stream_2/stream = ExtResource("8_lw50h")
 
 [node name="Sounds" type="Node"]
 script = ExtResource("1_mg7lp")
+muted = true
 
 [node name="PewPew" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

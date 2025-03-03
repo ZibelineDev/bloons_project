@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=7 format=3 uid="uid://d2ldgbb583gaj"]
 
+[ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
+[ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
 [ext_resource type="Script" uid="uid://s6bwnbu6ct70" path="res://scenes/user_interface/lives.gd" id="1_yqwyh"]
+[ext_resource type="Script" uid="uid://st8w3mpbiey3" path="res://scenes/user_interface/wave.gd" id="2_f1hci"]
+[ext_resource type="Script" uid="uid://c50s11rutbtsj" path="res://scenes/user_interface/wave_button.gd" id="4_2dtu1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n7gi"]
 bg_color = Color(0.6, 0.6, 0.6, 0.6)
@@ -10,7 +14,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 corner_detail = 1
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="UserInterface" type="MarginContainer"]
 custom_minimum_size = Vector2(288, 0)
 anchors_preset = 11
 anchor_left = 1.0
@@ -22,6 +26,7 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
+script = ExtResource("1_cj8yd")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -36,9 +41,49 @@ theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Wave" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Wave : <value>"
+script = ExtResource("2_f1hci")
+
+[node name="Currency" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Currency : <value>"
+script = ExtResource("1_e2uov")
 
 [node name="Lives" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Lives : <value>"
 script = ExtResource("1_yqwyh")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CreateTurret" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+focus_mode = 0
+text = "Create Turret"
+
+[node name="Space" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WaveButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+focus_mode = 0
+text = "Start Wave"
+script = ExtResource("4_2dtu1")

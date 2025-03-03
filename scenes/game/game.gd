@@ -17,6 +17,8 @@ var lives : int = 40
 func _ready() -> void :
 	lives = 40
 	lives_updated.emit(40)
+	(Currency as ACurrency).initialise()
+	Waves.ref.initialise()
 
 
 func lose_life(quantity : int = 1) -> void : 

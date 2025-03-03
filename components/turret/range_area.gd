@@ -5,12 +5,7 @@ var cooldown : float = 0.5
 var cooldown_progress : float = 0.0
 
 
-func _physics_process(delta : float) -> void :
-	if cooldown_progress <= 0.0 : 
-		scan_for_balloons()
-	
-	else : 
-		cooldown_progress -= delta
+
 
 
 func scan_for_balloons() -> void : 

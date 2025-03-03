@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b56y4ugo6mni"]
+[gd_scene load_steps=8 format=3 uid="uid://b56y4ugo6mni"]
 
 [ext_resource type="Texture2D" uid="uid://pb8y81dnnlxg" path="res://assets/textures/world_placeholder.png" id="1_dphjl"]
+[ext_resource type="Script" uid="uid://bd8caswo6j235" path="res://scenes/world/world.gd" id="1_v5dby"]
 [ext_resource type="Texture2D" uid="uid://dqgdiavrlcgxw" path="res://assets/textures/path_placeholder.png" id="2_sl2e5"]
 [ext_resource type="Script" uid="uid://ctf20c6lwfmcy" path="res://scenes/world/balloon_path.gd" id="3_1fp7r"]
-[ext_resource type="PackedScene" uid="uid://dv7ks0wr8gaga" path="res://components/turret/turret.tscn" id="4_6m72w"]
+[ext_resource type="Script" uid="uid://bbuop8ui68av2" path="res://scenes/world/turrets.gd" id="4_t5ptc"]
 
 [sub_resource type="Curve2D" id="Curve2D_sl2e5"]
 _data = {
@@ -11,7 +12,11 @@ _data = {
 }
 point_count = 15
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
+size = Vector2(298, 868)
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_v5dby")
 
 [node name="WorldPlaceholder" type="Sprite2D" parent="."]
 texture = ExtResource("1_dphjl")
@@ -21,12 +26,21 @@ centered = false
 texture = ExtResource("2_sl2e5")
 centered = false
 
-[node name="Turret" parent="." instance=ExtResource("4_6m72w")]
-position = Vector2(235, 97)
-
-[node name="Turret2" parent="." instance=ExtResource("4_6m72w")]
-position = Vector2(143, 602)
+[node name="Turrets" type="Node2D" parent="."]
+script = ExtResource("4_t5ptc")
 
 [node name="BalloonPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_sl2e5")
 script = ExtResource("3_1fp7r")
+
+[node name="PathCollider" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathCollider"]
+polygon = PackedVector2Array(0, 309, 117, 309, 122, 140, 337, 142, 345, 577, 119, 579, 116, 621, 648, 620, 643, 496, 464, 501, 462, 302, 734, 281, 726, 185, 455, 183, 447, -17, 514, -8, 520, 118, 787, 120, 808, 343, 529, 363, 527, 437, 707, 431, 715, 684, 50, 686, 56, 517, 278, 517, 273, 205, 188, 205, 183, 376, -8, 371, -8, 308)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathCollider"]
+position = Vector2(1004, 431)
+shape = SubResource("RectangleShape2D_t5ptc")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PathCollider"]
+polygon = PackedVector2Array(853, 2, 854, 865, -1, 864, -39, 934, 1224, 935, 1227, -80, -95, -77, -40, 930, -1, 862, -1, -3)

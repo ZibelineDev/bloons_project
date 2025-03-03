@@ -21,6 +21,7 @@ func _physics_process(delta : float) -> void :
 
 func pop() -> void : 
 	(Sounds as ASounds).play_pew_pew()
+	(Currency as ACurrency).create_currency(1)
 	queue_free()
 
 
