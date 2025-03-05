@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=9 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://cuhtjcphdy0uq" path="res://assets/styles/panel_style.tres" id="2_pvt6f"]
 [ext_resource type="Script" uid="uid://c50s11rutbtsj" path="res://scenes/user_interface/wave_button.gd" id="4_2dtu1"]
 [ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="6_6xuti"]
+[ext_resource type="PackedScene" uid="uid://bqarudu2l5vn7" path="res://scenes/turret_info/turret_info.tscn" id="7_flq3v"]
 
 [node name="UserInterface" type="HBoxContainer"]
 anchors_preset = 15
@@ -240,80 +241,9 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TurretInfo" type="VBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TurretInfo" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_flq3v")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="TurretName" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Turret Name"
-horizontal_alignment = 1
-
-[node name="MarginContainer3" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_right = 16
-
-[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/MarginContainer3"]
-layout_mode = 2
-
-[node name="SpeedLabels" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
-layout_mode = 2
-
-[node name="Speed" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/SpeedLabels"]
-layout_mode = 2
-text = "Speed : "
-
-[node name="Space" type="Control" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/SpeedLabels"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SpeedValue" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/SpeedLabels"]
-layout_mode = 2
-text = "Slow"
-
-[node name="RangeLabels" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
-layout_mode = 2
-
-[node name="Range" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/RangeLabels"]
-layout_mode = 2
-text = "Range : "
-
-[node name="Space" type="Control" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/RangeLabels"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RangeValue" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/RangeLabels"]
-layout_mode = 2
-text = "Short"
-
-[node name="MarginContainer4" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_right = 16
-
-[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/MarginContainer4"]
-layout_mode = 2
-
-[node name="UpgradeButtons" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
-custom_minimum_size = Vector2(0, 224)
-layout_mode = 2
-
-[node name="Upgrade1" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/UpgradeButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgrade1"
-
-[node name="Upgrade2" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/UpgradeButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgrade 2"
-
-[node name="SellButton" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Sell"
 
 [node name="WaveButton" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

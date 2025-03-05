@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqarudu2l5vn7"]
+
+[ext_resource type="Script" uid="uid://cnemnvkeyt0i4" path="res://scenes/turret_info/turret_info.gd" id="1_frd0q"]
+
+[node name="TurretInfo" type="VBoxContainer"]
+script = ExtResource("1_frd0q")
+
+[node name="TurretName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Turret Name"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer3"]
+layout_mode = 2
+
+[node name="SpeedLabels" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="SpeedLabels"]
+layout_mode = 2
+text = "Speed :"
+
+[node name="Space" type="Control" parent="SpeedLabels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpeedValue" type="Label" parent="SpeedLabels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Slow"
+
+[node name="RangeLabels" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Range" type="Label" parent="RangeLabels"]
+layout_mode = 2
+text = "Range : "
+
+[node name="Space" type="Control" parent="RangeLabels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RangeValue" type="Label" parent="RangeLabels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Short"
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer4"]
+layout_mode = 2
+
+[node name="UpgradeButtons" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 224)
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="UpgradeButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade1"
+
+[node name="Upgrade2" type="Button" parent="UpgradeButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade 2"
+
+[node name="SellButton" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Sell"

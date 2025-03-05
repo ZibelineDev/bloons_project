@@ -2,6 +2,7 @@ class_name Turret extends CharacterBody2D
 
 
 static var scene : String = "uid://dv7ks0wr8gaga"
+static var selected_turret : Turret = null
 
 
 var ghosted : bool = true
@@ -18,6 +19,7 @@ func _ready() -> void :
 	selected = false
 	range_indicator.visible = true
 	(%TurretCollision as CollisionShape2D).disabled = true
+	(%Button as Button).pressed.connect(on_pressed)
 
 
 func _physics_process(delta : float) -> void :
@@ -28,6 +30,24 @@ func _physics_process(delta : float) -> void :
 	
 	else : 
 		cooldown_progress -= delta
+
+
+func on_pressed() -> void : 
+	if ghosted : return 
+	select()
+
+
+func select() -> void : 
+	if selected_turret != self :
+		if selected_turret != null : 
+			selected_turret.deselect()
+	selected_turret = self
+	range_indicator.visible = true
+
+
+func deselect() -> void : 
+	range_indicator.visible = false
+	selected_turret = null
 
 
 static func create_ghost() -> Turret : 
