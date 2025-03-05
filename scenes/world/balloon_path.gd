@@ -54,6 +54,7 @@ func close_wave() -> void :
 	
 	wave_active = false
 	(Currency as ACurrency).create_currency(wave_rewards[completed_waves])
+	UserInterface.ref.create_feedback("Wave Completed. %s currency have ben awarded." %wave_rewards[completed_waves])
 	completed_waves += 1
 	wave_completed.emit(completed_waves)
 

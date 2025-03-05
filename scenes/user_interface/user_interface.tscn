@@ -1,86 +1,321 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=8 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
 [ext_resource type="Script" uid="uid://s6bwnbu6ct70" path="res://scenes/user_interface/lives.gd" id="1_yqwyh"]
 [ext_resource type="Script" uid="uid://st8w3mpbiey3" path="res://scenes/user_interface/wave.gd" id="2_f1hci"]
+[ext_resource type="StyleBox" uid="uid://cuhtjcphdy0uq" path="res://assets/styles/panel_style.tres" id="2_pvt6f"]
 [ext_resource type="Script" uid="uid://c50s11rutbtsj" path="res://scenes/user_interface/wave_button.gd" id="4_2dtu1"]
+[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="6_6xuti"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n7gi"]
-bg_color = Color(0.6, 0.6, 0.6, 0.6)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 1
-
-[node name="UserInterface" type="MarginContainer"]
-custom_minimum_size = Vector2(288, 0)
-anchors_preset = 11
-anchor_left = 1.0
+[node name="UserInterface" type="HBoxContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+mouse_filter = 2
 script = ExtResource("1_cj8yd")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="MainPanel" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8n7gi")
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="FeedbackPanel" type="MarginContainer" parent="MainPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 188)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MainPanel/FeedbackPanel"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pvt6f")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/FeedbackPanel/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="FeedbackLabel" type="RichTextLabel" parent="MainPanel/FeedbackPanel/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Hi, I'm a super cool text."
+fit_content = true
+
+[node name="RightPanel" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="RightPanel"]
+custom_minimum_size = Vector2(272, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = ExtResource("2_pvt6f")
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPanel/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Wave" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Wave" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Wave : <value>"
 script = ExtResource("2_f1hci")
 
-[node name="Currency" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Currency" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Currency : <value>"
 script = ExtResource("1_e2uov")
 
-[node name="Lives" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Lives" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Lives : <value>"
 script = ExtResource("1_yqwyh")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="CreateTurret" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CreateTurret" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 focus_mode = 0
 text = "Create Turret"
 
-[node name="Space" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Turrets" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
+self_modulate = Color(0.33094, 0.155418, 0.0999727, 1)
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("6_6xuti")
+
+[node name="Label" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "M"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
+self_modulate = Color(0.740274, 0.378221, 0.626078, 1)
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("6_6xuti")
+
+[node name="Label" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "T"
+horizontal_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
+self_modulate = Color(0.412542, 0.760525, 0.790411, 1)
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("6_6xuti")
+
+[node name="Label" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "I"
+horizontal_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
+self_modulate = Color(0.443318, 0.370796, 0.353427, 1)
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("6_6xuti")
+
+[node name="Label" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "B"
+horizontal_alignment = 1
+
+[node name="TextureRect5" type="TextureRect" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
+self_modulate = Color(0.0549932, 0.439109, 0.672955, 1)
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("6_6xuti")
+
+[node name="Label" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "H"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WaveButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TurretInfo" type="VBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TurretName" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Turret Name"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/MarginContainer3"]
+layout_mode = 2
+
+[node name="SpeedLabels" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/SpeedLabels"]
+layout_mode = 2
+text = "Speed : "
+
+[node name="Space" type="Control" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/SpeedLabels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpeedValue" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/SpeedLabels"]
+layout_mode = 2
+text = "Slow"
+
+[node name="RangeLabels" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
+layout_mode = 2
+
+[node name="Range" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/RangeLabels"]
+layout_mode = 2
+text = "Range : "
+
+[node name="Space" type="Control" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/RangeLabels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RangeValue" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/RangeLabels"]
+layout_mode = 2
+text = "Short"
+
+[node name="MarginContainer4" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/MarginContainer4"]
+layout_mode = 2
+
+[node name="UpgradeButtons" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
+custom_minimum_size = Vector2(0, 224)
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/UpgradeButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade1"
+
+[node name="Upgrade2" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo/UpgradeButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade 2"
+
+[node name="SellButton" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretInfo"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Sell"
+
+[node name="WaveButton" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2

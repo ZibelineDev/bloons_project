@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dstvxhlt8nd77" path="res://components/turret/turret.gd" id="1_csn5j"]
 [ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="1_gh4e7"]
-[ext_resource type="Script" uid="uid://bfsfyc3b0cuqi" path="res://components/turret/range_area.gd" id="2_irrmp"]
+[ext_resource type="Texture2D" uid="uid://dxlcv21goykj1" path="res://assets/textures/range_indicator.png" id="3_csn5j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_irrmp"]
 radius = 100.0
@@ -19,13 +19,18 @@ texture = ExtResource("1_gh4e7")
 
 [node name="RangeArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_irrmp")
 
 [node name="RangeAreaCollision" type="CollisionShape2D" parent="RangeArea"]
 shape = SubResource("CircleShape2D_irrmp")
 debug_color = Color(0.972699, 0.165938, 0, 0.42)
+
+[node name="RangeIndicator" type="Sprite2D" parent="RangeArea"]
+unique_name_in_owner = true
+position = Vector2(0, 0.883568)
+scale = Vector2(0.777114, 0.770316)
+texture = ExtResource("3_csn5j")
 
 [node name="BodyArea" type="Area2D" parent="."]
 unique_name_in_owner = true
