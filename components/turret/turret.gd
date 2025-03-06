@@ -1,6 +1,21 @@
 class_name Turret extends CharacterBody2D
 
 
+enum Types {
+	DART,
+	TACK,
+	FREEZE,
+	BOMB,
+	HYPERSONIC,
+}
+
+
+static var turrets : Dictionary[Turret.Types, RTurret] = {
+	Turret.Types.DART : load("uid://dtsegxyhlj16x"),
+	Turret.Types.TACK : load("uid://bs5qk4acwxdp4")
+}
+
+
 static var scene : String = "uid://dv7ks0wr8gaga"
 static var selected_turret : Turret = null
 
@@ -8,8 +23,7 @@ static var selected_turret : Turret = null
 var ghosted : bool = true
 var selected : bool = false
 
-var cooldown : float = 0.5
-var cooldown_progress : float = 0.0
+var resource : RTurret 
 
 @onready var range_indicator: Sprite2D = %RangeIndicator
 
@@ -22,14 +36,18 @@ func _ready() -> void :
 	(%Button as Button).pressed.connect(on_pressed)
 
 
+func _input(event : InputEvent) -> void :
+	if selected_turret and event.is_action_pressed("cancel") : deselect()
+
+
 func _physics_process(delta : float) -> void :
 	if ghosted : return 
 	
-	if cooldown_progress <= 0.0 : 
+	if resource.cooldown_progress <= 0.0 : 
 		scan_for_balloons()
 	
 	else : 
-		cooldown_progress -= delta
+		resource.cooldown_progress -= delta
 
 
 func on_pressed() -> void : 
@@ -50,9 +68,25 @@ func deselect() -> void :
 	selected_turret = null
 
 
-static func create_ghost() -> Turret : 
+static func create_ghost(type : Types) -> Turret : 
+	match type : 
+		Types.TACK : return TackTurret.create_this()
+		_, Types.DART : return create_this()
+
+
+static func create_this() -> Turret : 
 	var turret : Turret = (load(scene) as PackedScene).instantiate()
+	turret.resource = preload("uid://dtsegxyhlj16x")
+	turret.update_range()
 	return turret
+
+
+func update_range() -> void : 
+	((%RangeAreaCollision as CollisionShape2D).shape as CircleShape2D).radius = resource.turret_range
+	# 256 x X = radius x 2
+	var sprite_scale_factor : float = resource.turret_range * 2.0 / 256.0
+	(%RangeIndicator as Sprite2D).scale = Vector2(sprite_scale_factor, sprite_scale_factor)
+	
 
 
 func is_colliding() -> bool : 
@@ -80,4 +114,4 @@ func scan_for_balloons() -> void :
 	
 	if target : 
 		target.hit()
-		cooldown_progress = cooldown
+		resource.cooldown_progress = resource.cooldown

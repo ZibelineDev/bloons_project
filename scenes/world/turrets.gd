@@ -21,9 +21,9 @@ func _input(event : InputEvent) -> void :
 		refund_turret()
 
 
-func create_ghost_turret() -> void :
+func create_ghost_turret(type : Turret.Types) -> void :
 	if ghost_turret : return
-	ghost_turret = Turret.create_ghost()
+	ghost_turret = Turret.create_ghost(type)
 	add_child(ghost_turret)
 
 
@@ -34,15 +34,16 @@ func try_to_place() -> void :
 
 
 func refund_turret() -> void : 
+	(Currency as ACurrency).create_currency(ghost_turret.resource.cost)
 	ghost_turret.queue_free()
 	ghost_turret = null
-	(Currency as ACurrency).create_currency(10)
 
 
-func try_to_purchase() -> void : 
-	if not (Currency as ACurrency).consume_currency(10) : 
-		create_ghost_turret()
+func try_to_purchase(type : Turret.Types) -> void : 
+	if ghost_turret : return
+	if not (Currency as ACurrency).consume_currency(Turret.turrets[type].cost) : 
+		create_ghost_turret(type)
 
 
-func on_create_turret_pressed() -> void : 
-	try_to_purchase()
+func on_create_turret_pressed(type : Turret.Types) -> void : 
+	try_to_purchase(type)

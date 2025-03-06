@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxkrlk42blgoo"]
+
+[ext_resource type="PackedScene" uid="uid://dv7ks0wr8gaga" path="res://components/turret/turret.tscn" id="1_k5pel"]
+[ext_resource type="Script" uid="uid://kkvnxbc85i45" path="res://components/turrets/tack/tack.gd" id="2_sda7n"]
+
+[node name="Tack" instance=ExtResource("1_k5pel")]
+script = ExtResource("2_sda7n")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.778326, 1.38617e-05, 0.535474, 1)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RTurret" load_steps=2 format=3 uid="uid://bs5qk4acwxdp4"]
+
+[ext_resource type="Script" uid="uid://b1145c1qsa2tf" path="res://resources/turrets/turret.gd" id="1_jf0cf"]
+
+[resource]
+script = ExtResource("1_jf0cf")
+type = 1
+name = "Tack"
+cost = 400
+cooldown = 1.0
+cooldown_progress = 0.0
+turret_range = 75.0
+metadata/_custom_type_script = "uid://b1145c1qsa2tf"

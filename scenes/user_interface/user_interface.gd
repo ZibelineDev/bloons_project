@@ -6,7 +6,8 @@ func _init() -> void :
 	ref = self
 
 
-signal create_turret_pressed
+@warning_ignore("unused_signal")
+signal create_turret_pressed(type : Turret.Types)
 
 
 @onready var feedback_label : RichTextLabel = %FeedbackLabel
@@ -14,7 +15,6 @@ signal create_turret_pressed
 
 
 func _ready() -> void :
-	(%CreateTurret as Button).pressed.connect(on_create_turret_button_pressed)
 	feedback_container.visible = false
 
 
@@ -23,7 +23,3 @@ func create_feedback(text : String) -> void :
 	feedback_container.visible = true
 	await get_tree().create_timer(5.0).timeout
 	feedback_container.visible = false
-
-
-func on_create_turret_button_pressed() -> void : 
-	create_turret_pressed.emit()

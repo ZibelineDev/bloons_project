@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RTurret" load_steps=2 format=3 uid="uid://dtsegxyhlj16x"]
+
+[ext_resource type="Script" uid="uid://b1145c1qsa2tf" path="res://resources/turrets/turret.gd" id="1_eya1v"]
+
+[resource]
+script = ExtResource("1_eya1v")
+type = 0
+name = "Dart"
+cost = 250
+cooldown = 0.5
+cooldown_progress = 0.0
+turret_range = 150.0
+metadata/_custom_type_script = "uid://b1145c1qsa2tf"
