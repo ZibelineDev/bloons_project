@@ -60,18 +60,20 @@ func select() -> void :
 		if selected_turret != null : 
 			selected_turret.deselect()
 	selected_turret = self
+	TurretInfo.ref.select(self)
 	range_indicator.visible = true
 
 
 func deselect() -> void : 
 	range_indicator.visible = false
 	selected_turret = null
+	TurretInfo.ref.deselect()
 
 
 static func create_ghost(type : Types) -> Turret : 
 	match type : 
 		Types.TACK : return TackTurret.create_this()
-		_, Types.DART : return create_this()
+		_, Types.DART : return DartTurret.create_this()
 
 
 static func create_this() -> Turret : 
@@ -113,5 +115,33 @@ func scan_for_balloons() -> void :
 			target = balloon_area
 	
 	if target : 
-		target.hit()
+		fire(target.balloon)
 		resource.cooldown_progress = resource.cooldown
+
+
+func fire(_target : Balloon) -> void : 
+	pass
+
+
+func get_first_upgrade() -> RUpgrade : 
+	return null
+
+
+func try_to_purchase_first_upgrade() -> void : 
+	if resource.first_upgrade_purchased : return
+	
+	if not (Currency as ACurrency).consume_currency(get_first_upgrade().cost) :
+		resource.first_upgrade_purchased = true
+		apply_first_upgrade()
+
+
+func apply_first_upgrade() -> void : 
+	pass
+
+
+func get_second_upgrade() -> RUpgrade : 
+	return null
+
+
+func try_to_purchase_second_upgrade() -> void : 
+	pass

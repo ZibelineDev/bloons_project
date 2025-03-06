@@ -11,14 +11,29 @@ func _init() -> void :
 @onready var upgrade_1: Button = %Upgrade1
 @onready var upgrade_2: Button = %Upgrade2
 
+var turret : Turret 
+
 
 func _ready() -> void :
-	pass
+	(%Upgrade1 as Button).pressed.connect(on_button_1_pressed)
+	visible = false
 
 
-func select() -> void : 
+func select(_turret : Turret) -> void : 
+	turret = _turret
+	var upgrade : RUpgrade = turret.get_first_upgrade()
+	(%Upgrade1 as Button).text = "%s\n%s" %[upgrade.name, upgrade.cost]
 	visible = true
 
 
 func deselect() -> void : 
+	turret = null
 	visible = false
+
+
+func on_button_1_pressed() -> void : 
+	turret.try_to_purchase_first_upgrade()
+
+
+func on_button_2_pressed() -> void : 
+	pass

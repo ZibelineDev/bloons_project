@@ -4,7 +4,7 @@ class_name Balloon extends PathFollow2D
 static var scene : PackedScene = load("uid://7tgh7f8vdhwo")
 
 
-var speed : float = 300.0
+var speed : float = 75.0
 var level : int = 0
 
 
@@ -40,8 +40,8 @@ func update_colour() -> void :
 
 func update_speed() -> void  : 
 	match level : 
-		0 : speed = 300.0
-		1 : speed = 325.0
+		0 : speed = 150.0
+		1 : speed = 160.0
 
 
 func pop() -> void : 
