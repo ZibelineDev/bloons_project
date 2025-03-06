@@ -34,7 +34,7 @@ func try_to_place() -> void :
 
 
 func refund_turret() -> void : 
-	(Currency as ACurrency).create_currency(ghost_turret.resource.cost)
+	(Currency as ACurrency).refund_currency(ghost_turret.resource.cost)
 	ghost_turret.queue_free()
 	ghost_turret = null
 
