@@ -36,12 +36,14 @@ func update_colour() -> void :
 	match level : 
 		0 : modulate = Color.RED
 		1 : modulate = Color.CORNFLOWER_BLUE
+		2 : modulate = Color.LIME_GREEN
 
 
 func update_speed() -> void  : 
 	match level : 
 		0 : speed = 125.0
 		1 : speed = 150.0
+		2 : speed = 200.0
 
 
 func pop() -> void : 

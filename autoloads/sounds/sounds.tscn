@@ -24,6 +24,7 @@ stream_2/stream = ExtResource("8_lw50h")
 
 [node name="Sounds" type="Node"]
 script = ExtResource("1_mg7lp")
+muted = true
 
 [node name="PewPew" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

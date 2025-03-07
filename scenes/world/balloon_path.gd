@@ -12,15 +12,25 @@ signal wave_completed(completed_waves : int)
 
 var completed_waves : int
 var wave_active : bool
+var wave_resource : RWave
 
 var spawn_completed : bool
 
+@onready var spawn_timer: Timer = %SpawnTimer
 
-var waves : Array[Callable] = [
-	spawn_wave_01,
-	spawn_wave_02,
-	spawn_wave_03,
+
+var waves : Array[String] = [
+	"uid://cvurd1in1rif5",
+	"uid://c73bse16djgvv",
+	"uid://d3ntbm64xcioq",
+	"uid://gainer3dvx6r",
+	"uid://j5ugsxn87kej",
+	"uid://jlfwawf2pps1",
 ]
+
+
+func _ready() -> void :
+	spawn_timer.timeout.connect(on_spawn_timer_timeout)
 
 
 func _physics_process(_delta : float) -> void :
@@ -36,12 +46,16 @@ func initialise() -> void :
 
 
 func initiate_wave() -> void :
+	if completed_waves >= waves.size() :
+		UserInterface.ref.create_feedback("There are no More waves Yet. Be Patient (or don't and harass me on Discord)")
+		return
 	if wave_active : return
 	
 	wave_active = true
 	spawn_completed = false
-	waves[completed_waves].call()
 	wave_initiated.emit(completed_waves + 1)
+	wave_resource = load(waves[completed_waves])
+	spawn_timer.start()
 
 
 func close_wave() -> void : 
@@ -54,35 +68,18 @@ func close_wave() -> void :
 	wave_completed.emit(completed_waves)
 
 
-func spawn_wave_01() -> void : 
-	var timer : float = 0.2
+func on_spawn_timer_timeout() -> void : 
+	if wave_resource.content[0].y == 0 :
+		wave_resource.content.pop_front()
 	
-	for index : int in range(12) : 
-		add_child(Balloon.create())
-		await get_tree().create_timer(timer).timeout
+	if wave_resource.content.size() <= 0 :
+		spawn_completed = true
+		spawn_timer.stop()
+		return
 	
-	spawn_completed = true
-
-
-func spawn_wave_02() -> void : 
-	var timer : float = 0.2
+	if wave_resource.content[0].x == -1 : 
+		wave_resource.content[0].y -= 1
+		return
 	
-	for index : int in range(25) : 
-		add_child(Balloon.create())
-		await get_tree().create_timer(timer).timeout
-	
-	spawn_completed = true
-
-
-func spawn_wave_03() -> void : 
-	var timer : float = 0.2
-	
-	for index : int in range(24) : 
-		add_child(Balloon.create())
-		await get_tree().create_timer(timer).timeout
-	
-	for index : int in range(5) : 
-		add_child(Balloon.create(1))
-		await get_tree().create_timer(timer).timeout
-	
-	spawn_completed = true
+	add_child(Balloon.create(wave_resource.content[0].x))
+	wave_resource.content[0].y -= 1
