@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_x74re")
 name = "Tack Speed"
-cost = 210
+cost = 250
 texture = ExtResource("2_wm5k3")
 metadata/_custom_type_script = "uid://diqh2nbmyf8tr"

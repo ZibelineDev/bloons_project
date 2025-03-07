@@ -40,8 +40,8 @@ func update_colour() -> void :
 
 func update_speed() -> void  : 
 	match level : 
-		0 : speed = 150.0
-		1 : speed = 160.0
+		0 : speed = 125.0
+		1 : speed = 150.0
 
 
 func pop() -> void : 

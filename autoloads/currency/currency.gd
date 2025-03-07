@@ -11,7 +11,7 @@ var currency : int
 
 
 func initialise() -> void :
-	currency = 25000
+	currency = 650
 	
 	currency_updated.emit(currency)
 

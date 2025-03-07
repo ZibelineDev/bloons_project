@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_dy5ir")
 name = "Tack Range"
-cost = 100
+cost = 150
 texture = ExtResource("2_lbtme")
 metadata/_custom_type_script = "uid://diqh2nbmyf8tr"
