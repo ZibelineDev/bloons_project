@@ -37,7 +37,7 @@ func _ready() -> void :
 
 
 func _input(event : InputEvent) -> void :
-	if selected_turret and event.is_action_pressed("cancel") : deselect()
+	if selected_turret and event.is_action_pressed("cancel") : selected_turret.deselect()
 
 
 func _physics_process(delta : float) -> void :
@@ -144,4 +144,12 @@ func get_second_upgrade() -> RUpgrade :
 
 
 func try_to_purchase_second_upgrade() -> void : 
+	if resource.second_upgrade_purchased : return
+	
+	if not (Currency as ACurrency).consume_currency(get_second_upgrade().cost) :
+		resource.second_upgrade_purchased = true
+		apply_second_upgrade()
+
+
+func apply_second_upgrade() -> void : 
 	pass

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RUpgrade" load_steps=3 format=3 uid="uid://dlhrk1d2spcx2"]
+
+[ext_resource type="Script" uid="uid://diqh2nbmyf8tr" path="res://resources/upgrades/upgrade.gd" id="1_2gdeh"]
+[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="2_k4u53"]
+
+[resource]
+script = ExtResource("1_2gdeh")
+name = "Dart Pierce"
+cost = 100
+texture = ExtResource("2_k4u53")
+metadata/_custom_type_script = "uid://diqh2nbmyf8tr"

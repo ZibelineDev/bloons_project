@@ -15,14 +15,17 @@ var turret : Turret
 
 
 func _ready() -> void :
-	(%Upgrade1 as Button).pressed.connect(on_button_1_pressed)
+	upgrade_1.pressed.connect(on_button_1_pressed)
+	upgrade_2.pressed.connect(on_button_2_pressed)
 	visible = false
 
 
 func select(_turret : Turret) -> void : 
 	turret = _turret
-	var upgrade : RUpgrade = turret.get_first_upgrade()
-	(%Upgrade1 as Button).text = "%s\n%s" %[upgrade.name, upgrade.cost]
+	var _upgrade_1 : RUpgrade = turret.get_first_upgrade()
+	upgrade_1.text = "%s\n%s" %[_upgrade_1.name, _upgrade_1.cost]
+	var _upgrade_2 : RUpgrade = turret.get_second_upgrade()
+	upgrade_2.text = "%s\n%s" %[_upgrade_2.name, _upgrade_2.cost]
 	visible = true
 
 
@@ -36,4 +39,4 @@ func on_button_1_pressed() -> void :
 
 
 func on_button_2_pressed() -> void : 
-	pass
+	turret.try_to_purchase_second_upgrade()

@@ -34,4 +34,17 @@ func select() -> void :
 
 
 func get_first_upgrade() -> RUpgrade : 
-	return RUpgrade.upgrades[RUpgrade.List.DART_RANGE]
+	return RUpgrade.upgrades[RUpgrade.List.TACK_SPEED]
+
+
+func apply_first_upgrade() -> void : 
+	resource.cooldown -= 0.5
+
+
+func get_second_upgrade() -> RUpgrade : 
+	return RUpgrade.upgrades[RUpgrade.List.TACK_RANGE]
+
+
+func apply_second_upgrade() -> void : 
+	resource.turret_range += 25.0
+	update_range()

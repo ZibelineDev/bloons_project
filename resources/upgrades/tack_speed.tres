@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RUpgrade" load_steps=3 format=3 uid="uid://bn2et1joi2ftm"]
+
+[ext_resource type="Script" uid="uid://diqh2nbmyf8tr" path="res://resources/upgrades/upgrade.gd" id="1_x74re"]
+[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="2_wm5k3"]
+
+[resource]
+script = ExtResource("1_x74re")
+name = "Tack Speed"
+cost = 210
+texture = ExtResource("2_wm5k3")
+metadata/_custom_type_script = "uid://diqh2nbmyf8tr"
