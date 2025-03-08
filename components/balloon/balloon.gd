@@ -9,13 +9,13 @@ var level : int = 0
 
 
 func _ready() -> void :
-	h_offset = randi_range(-10, 10)
-	v_offset = randi_range(-10, 10)
 	update()
 
 
 static func create(_level : int = 0) -> Balloon : 
 	var balloon : Balloon = scene.instantiate()
+	balloon.h_offset = randi_range(-15, 15)
+	balloon.v_offset = randi_range(-15, 15)
 	balloon.level = _level
 	return balloon
 
@@ -37,6 +37,9 @@ func update_colour() -> void :
 		0 : modulate = Color.RED
 		1 : modulate = Color.CORNFLOWER_BLUE
 		2 : modulate = Color.LIME_GREEN
+		3 : modulate = Color.YELLOW
+		4 : modulate = Color.BLACK
+		5 : modulate = Color.WHITE
 
 
 func update_speed() -> void  : 
@@ -44,17 +47,38 @@ func update_speed() -> void  :
 		0 : speed = 125.0
 		1 : speed = 150.0
 		2 : speed = 200.0
+		3 : speed = 300.0
+		4 : speed = 250.0
+		5 : speed = 325.0
+	speed = 125
 
 
 func pop() -> void : 
 	(Sounds as ASounds).play_pew_pew()
 	(Currency as ACurrency).create_currency(1)
 	
+	if level == 4 : 
+		level = 3
+		create_sibling()
+		update()
+		return
+	if level == 5 :
+		level = 3
+		create_sibling()
+		update()
+		return
 	if level >= 1 : 
 		level -= 1
 		update()
-	else :
+		return
+	if level <= 0 :
 		queue_free()
+
+
+func create_sibling() -> void : 
+	var sibling : Balloon = create(3)
+	sibling.progress = progress
+	add_sibling(sibling)
 
 
 func bonk() -> void : 

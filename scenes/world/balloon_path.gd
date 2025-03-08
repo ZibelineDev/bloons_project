@@ -20,12 +20,32 @@ var spawn_completed : bool
 
 
 var waves : Array[String] = [
-	"uid://cvurd1in1rif5",
+	"uid://cvurd1in1rif5", #1
 	"uid://c73bse16djgvv",
 	"uid://d3ntbm64xcioq",
 	"uid://gainer3dvx6r",
-	"uid://j5ugsxn87kej",
+	"uid://j5ugsxn87kej", #5
 	"uid://jlfwawf2pps1",
+	"uid://ccxa2s5t5op5x",
+	"uid://svtmvpeigoxy",
+	"uid://deakjp3fo1s57",
+	"uid://krbay3jg0fym", #10
+	"uid://6la7d4sbq6tr",
+	"uid://b6dnfeqbe12hw",
+	"uid://cddr1sbcn6j7p",
+	"uid://d3ken4bgo34lx",
+	"uid://cshj721d7sfu7", #15
+	"uid://djt55vnod5fq0",
+	"uid://bmjwcbrtcds4m",
+	"uid://dfx0df6mpb0en",
+	"uid://dhunarqtemt1d",
+	"uid://qwoty61fgnpb", #20
+	"uid://46c2smotplx0",
+	"uid://8phar7vhvnkf",
+	"uid://bain5ypfqo1ik",
+	"uid://fuqy8r4js1uo",
+	"uid://bft842jh4ch1n", #25
+	"uid://crb0onc5u1bi2",
 ]
 
 

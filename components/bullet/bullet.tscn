@@ -3,16 +3,18 @@
 [ext_resource type="Script" uid="uid://cg5fh56r2uv4f" path="res://components/bullet/bullet.gd" id="1_142lv"]
 [ext_resource type="Texture2D" uid="uid://xgftqxd2trj0" path="res://assets/textures/balloon_placeholder.png" id="2_j7bu3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_142lv"]
-radius = 16.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7bu3"]
+radius = 1.0
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_142lv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_142lv")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.9375, 0.0625)
 texture = ExtResource("2_j7bu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j7bu3")

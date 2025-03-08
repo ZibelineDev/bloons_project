@@ -13,6 +13,10 @@ var speed : float = 1000.0
 var lifespan : float = 1.0
 
 
+func _ready() -> void :
+	rotate(direction.angle())
+
+
 static func create(_direction : Vector2, _range : float, _pierce : int = 0, _speed : float = 1000.0) -> Bullet : 
 	var bullet : Bullet = (preload(SCENE) as PackedScene).instantiate()
 	bullet.direction = _direction

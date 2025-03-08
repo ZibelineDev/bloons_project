@@ -16,8 +16,8 @@ static func create_this() -> Turret :
 
 
 func fire(target : Balloon) -> void :
-	var direction : Vector2 = (target.position - position).normalized()
-	add_child(Bullet.create(direction, resource.turret_range, pierce))
+	var direction : Vector2 = (target.global_position - global_position).normalized()
+	add_child(Bullet.create(direction, resource.turret_range + 10.0 , pierce, 1750.0))
 
 
 func select() -> void : 
