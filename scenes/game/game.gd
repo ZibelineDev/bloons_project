@@ -15,6 +15,7 @@ var lives : int = 40
 
 
 func _ready() -> void :
+	#Engine.time_scale = 0.25
 	lives = 40
 	lives_updated.emit(40)
 	(Currency as ACurrency).initialise()

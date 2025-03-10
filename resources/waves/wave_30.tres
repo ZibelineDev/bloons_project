@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://pixc8wsyor1p"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_0alqa"]
+
+[resource]
+script = ExtResource("1_0alqa")
+content = Array[Vector2i]([Vector2i(4, 19), Vector2i(3, 125)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

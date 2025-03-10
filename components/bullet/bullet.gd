@@ -39,14 +39,15 @@ func _physics_process(delta : float) -> void :
 
 func scan_for_balloon() -> void : 
 	var balloon_areas : Array[Area2D] = get_overlapping_areas()
-	var targets : Array[BalloonArea2D] = []
+	var _target : BalloonArea2D = null
 	
 	for balloon_area : BalloonArea2D in balloon_areas : 
-		if targets.size() < (pierce + 1) :
-			targets.append(balloon_area)
+		if _target == null or _target.get_progress_ratio() < balloon_area.get_progress_ratio() : 
+			_target = balloon_area
 	
-	for _target : BalloonArea2D in targets : 
+	if _target : 
 		_target.hit()
-	
-	if targets.size() >= 1 :
-		queue_free()
+		pierce -= 1 
+		
+		if pierce < 0 :
+			queue_free()

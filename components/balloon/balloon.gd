@@ -8,6 +8,9 @@ var speed : float = 75.0
 var level : int = 0
 
 
+@onready var base: Sprite2D = %Base
+
+
 func _ready() -> void :
 	update()
 
@@ -28,18 +31,25 @@ func _physics_process(delta : float) -> void :
 
 
 func update() -> void : 
+	update_scale()
 	update_colour()
 	update_speed()
 
 
+func update_scale() -> void :
+	match level : 
+		4, 5 : scale = Vector2(0.66, 0.66)
+		_, 1, 2, 3 : scale = Vector2(1.0, 1.0)
+
+
 func update_colour() -> void : 
 	match level : 
-		0 : modulate = Color.RED
-		1 : modulate = Color.CORNFLOWER_BLUE
-		2 : modulate = Color.LIME_GREEN
-		3 : modulate = Color.YELLOW
-		4 : modulate = Color.BLACK
-		5 : modulate = Color.WHITE
+		0 : base.modulate = Color.RED
+		1 : base.modulate = Color.CORNFLOWER_BLUE
+		2 : base.modulate = Color.LIME_GREEN
+		3 : base.modulate = Color.YELLOW
+		4 : base.modulate = Color.BLACK
+		5 : base.modulate = Color.WHITE
 
 
 func update_speed() -> void  : 
@@ -50,11 +60,10 @@ func update_speed() -> void  :
 		3 : speed = 300.0
 		4 : speed = 250.0
 		5 : speed = 325.0
-	speed = 125
 
 
 func pop() -> void : 
-	(Sounds as ASounds).play_pew_pew()
+	(Sounds as ASounds).play_pop()
 	(Currency as ACurrency).create_currency(1)
 	
 	if level == 4 : 

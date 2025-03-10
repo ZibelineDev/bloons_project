@@ -6,6 +6,7 @@ class_name ASounds extends Node
 
 @onready var pew_pew: AudioStreamPlayer = %PewPew
 @onready var bonk: AudioStreamPlayer = %Bonk
+@onready var pop: AudioStreamPlayer = %Pop
 
 
 func play_pew_pew() -> void :
@@ -16,3 +17,10 @@ func play_pew_pew() -> void :
 func play_bonk() -> void : 
 	if muted : return
 	bonk.play()
+
+
+func play_pop() -> void : 
+	if muted : return
+	pop.pitch_scale = randf_range(0.9, 1.1)
+	pop.play()
+	

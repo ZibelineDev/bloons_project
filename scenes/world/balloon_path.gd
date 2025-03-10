@@ -46,6 +46,21 @@ var waves : Array[String] = [
 	"uid://fuqy8r4js1uo",
 	"uid://bft842jh4ch1n", #25
 	"uid://crb0onc5u1bi2",
+	"uid://cwysxlmuyf2o0",
+	"uid://7jvarp1lldb1",
+	"uid://7uwdfjqcxydv",
+	"uid://pixc8wsyor1p", #30
+	"uid://1smtwyj2w0ki", 
+	"uid://battjcx36f4wq",
+	"uid://cjaln0gxcm8qy",
+	"uid://ldreweqvch53", 
+	"uid://ctmj3wjuajiiu", #35
+	"uid://3b2anclxt121",
+	"uid://fdamhnyr8gdw",
+	"uid://belxgeyj102lp",
+	"uid://ce4edu4r7sai6",
+	"uid://y037krecqdgb", #40
+	"uid://d2yiebwn4sd7m",
 ]
 
 

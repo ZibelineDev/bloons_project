@@ -1,20 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://7tgh7f8vdhwo"]
+[gd_scene load_steps=6 format=3 uid="uid://7tgh7f8vdhwo"]
 
 [ext_resource type="Script" uid="uid://dc0bptcwx05pf" path="res://components/balloon/balloon.gd" id="1_kgbnr"]
-[ext_resource type="Texture2D" uid="uid://xgftqxd2trj0" path="res://assets/textures/balloon_placeholder.png" id="2_r4c4m"]
+[ext_resource type="Texture2D" uid="uid://xvlu7s0vd1wi" path="res://assets/textures/sableTDballoon.png" id="2_4vf2m"]
 [ext_resource type="Script" uid="uid://fl8wuxo08ka3" path="res://components/balloon/static_body_2d.gd" id="3_4vf2m"]
+[ext_resource type="Texture2D" uid="uid://ql5yq6mxmf06" path="res://assets/textures/sableTDballoon_light.png" id="3_7jupt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7jupt"]
-radius = 18.1108
+radius = 16.0
 
 [node name="Balloon" type="PathFollow2D"]
 rotates = false
 loop = false
 script = ExtResource("1_kgbnr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
-texture = ExtResource("2_r4c4m")
+texture = ExtResource("2_4vf2m")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.823529)
+texture_filter = 1
+texture = ExtResource("3_7jupt")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
