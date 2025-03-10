@@ -6,4 +6,4 @@ func _ready() -> void :
 
 
 func on_currency_created(new_value : int) -> void :
-	text = "Bananas : %s" %new_value
+	text = "Money : %s" %new_value
