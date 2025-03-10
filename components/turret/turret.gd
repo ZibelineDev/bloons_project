@@ -70,6 +70,10 @@ func deselect() -> void :
 	TurretInfo.ref.deselect()
 
 
+static func deselect_current_turret() -> void : 
+	if selected_turret : selected_turret.deselect()
+
+
 static func create_ghost(type : Types) -> Turret : 
 	match type : 
 		Types.TACK : return TackTurret.create_this()

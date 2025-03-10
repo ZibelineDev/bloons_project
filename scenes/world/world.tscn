@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b56y4ugo6mni"]
+[gd_scene load_steps=9 format=3 uid="uid://b56y4ugo6mni"]
 
 [ext_resource type="Texture2D" uid="uid://pb8y81dnnlxg" path="res://assets/textures/world_placeholder.png" id="1_dphjl"]
 [ext_resource type="Script" uid="uid://bd8caswo6j235" path="res://scenes/world/world.gd" id="1_v5dby"]
 [ext_resource type="Script" uid="uid://ctf20c6lwfmcy" path="res://scenes/world/balloon_path.gd" id="3_1fp7r"]
 [ext_resource type="Texture2D" uid="uid://bx7xqbs6kprk8" path="res://assets/textures/sableTDMap.png" id="4_bq33v"]
+[ext_resource type="Script" uid="uid://dwmh605xpunr" path="res://scenes/world/deselection_button.gd" id="4_j2gmx"]
 [ext_resource type="Script" uid="uid://bbuop8ui68av2" path="res://scenes/world/turrets.gd" id="4_t5ptc"]
 
 [sub_resource type="Curve2D" id="Curve2D_sl2e5"]
@@ -26,6 +27,15 @@ centered = false
 position = Vector2(-163.4, -126.2)
 texture = ExtResource("4_bq33v")
 centered = false
+
+[node name="DeselectionButton" type="Button" parent="."]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 859.0
+offset_bottom = 869.0
+focus_mode = 0
+flat = true
+script = ExtResource("4_j2gmx")
 
 [node name="Turrets" type="Node2D" parent="."]
 script = ExtResource("4_t5ptc")

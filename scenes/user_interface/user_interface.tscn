@@ -1,17 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=15 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
 [ext_resource type="Script" uid="uid://s6bwnbu6ct70" path="res://scenes/user_interface/lives.gd" id="1_yqwyh"]
+[ext_resource type="Script" uid="uid://xq7kmk02s2lw" path="res://scenes/user_interface/speed_button.gd" id="2_axgoa"]
 [ext_resource type="Script" uid="uid://st8w3mpbiey3" path="res://scenes/user_interface/wave.gd" id="2_f1hci"]
 [ext_resource type="StyleBox" uid="uid://cuhtjcphdy0uq" path="res://assets/styles/panel_style.tres" id="2_pvt6f"]
 [ext_resource type="Script" uid="uid://c50s11rutbtsj" path="res://scenes/user_interface/wave_button.gd" id="4_2dtu1"]
 [ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="6_6xuti"]
 [ext_resource type="Script" uid="uid://db7jp3q724l0f" path="res://scenes/user_interface/turret_shop_icon.gd" id="6_8wifb"]
 [ext_resource type="PackedScene" uid="uid://bqarudu2l5vn7" path="res://scenes/turret_info/turret_info.tscn" id="7_flq3v"]
+[ext_resource type="PackedScene" uid="uid://dj578mtugchn3" path="res://scenes/purchase_info/purchase_info.tscn" id="10_tfswy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8wifb"]
 font_color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfswy"]
 
 [node name="UserInterface" type="HBoxContainer"]
 anchors_preset = 15
@@ -27,6 +33,26 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 alignment = 2
+
+[node name="SpeedButton" type="MarginContainer" parent="MainPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="SpeedButton" type="Button" parent="MainPanel/SpeedButton"]
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+focus_mode = 0
+text = "Chilling"
+script = ExtResource("2_axgoa")
+
+[node name="Space" type="Control" parent="MainPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="FeedbackPanel" type="MarginContainer" parent="MainPanel"]
 unique_name_in_owner = true
@@ -103,20 +129,25 @@ theme_type_variation = &"HeaderMedium"
 text = "Lives : <value>"
 script = ExtResource("1_yqwyh")
 
-[node name="MarginContainer" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Separator" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Separator"]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ShopHeader" type="Label" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Building Turrets"
+horizontal_alignment = 1
+
+[node name="Separator4" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Separator4"]
 layout_mode = 2
 
 [node name="Turrets" type="HBoxContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
@@ -263,17 +294,47 @@ text = "M"
 label_settings = SubResource("LabelSettings_8wifb")
 horizontal_alignment = 1
 
-[node name="Space" type="Control" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Separator2" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Separator2"]
+layout_mode = 2
+
+[node name="TurretView" type="TabContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g6pv1")
+current_tab = 0
+tabs_visible = false
 
-[node name="TurretInfo" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_flq3v")]
+[node name="PanelContainer" type="PanelContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretView"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tfswy")
+metadata/_tab_index = 0
+
+[node name="UpgradeInfo" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretView/PanelContainer" instance=ExtResource("7_flq3v")]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PurchaseInfo" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/TurretView" instance=ExtResource("10_tfswy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Separator3" type="MarginContainer" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer/Separator3"]
 layout_mode = 2
 
 [node name="WaveButton" type="Button" parent="RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 focus_mode = 0
 text = "Start Wave"

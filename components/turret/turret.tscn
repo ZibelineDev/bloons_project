@@ -45,6 +45,7 @@ shape = SubResource("RectangleShape2D_csn5j")
 
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
+z_index = 1
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0

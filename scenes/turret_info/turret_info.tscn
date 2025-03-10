@@ -65,15 +65,17 @@ layout_mode = 2
 
 [node name="Upgrade1" type="Button" parent="UpgradeButtons"]
 unique_name_in_owner = true
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Upgrade1"
+text = "Upgr"
 
 [node name="Upgrade2" type="Button" parent="UpgradeButtons"]
 unique_name_in_owner = true
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Upgrade 2"
+text = "Upgr"
 
 [node name="SellButton" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 40)

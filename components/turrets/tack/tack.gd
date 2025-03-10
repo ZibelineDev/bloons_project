@@ -26,7 +26,7 @@ static func create_this() -> Turret :
 
 func fire(_target : Balloon) -> void :
 	for direction : Vector2 in directions :
-		add_child(Bullet.create(direction, resource.turret_range))
+		add_child(Bullet.create(direction, resource.turret_range + 15.0))
 
 
 func select() -> void : 
