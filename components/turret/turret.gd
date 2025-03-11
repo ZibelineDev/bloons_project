@@ -28,7 +28,7 @@ var selected : bool = false
 
 var resource : RTurret 
 
-@onready var range_indicator: Sprite2D = %RangeIndicator
+@onready var range_indicator: TurretRangeIndicator = %RangeIndicator
 
 
 func _ready() -> void :
@@ -47,10 +47,10 @@ func _physics_process(delta : float) -> void :
 	if ghosted :
 		if is_colliding() : 
 			range_indicator.modulate = Color.RED
-			(%RangeAnimation as AnimationPlayer).play("not_ok")
+			range_indicator.play_tween()
 		else : 
 			range_indicator.modulate = Color.GREEN
-			(%RangeAnimation as AnimationPlayer).play("ok")
+			range_indicator.stop_tween()
 	
 	else : 
 		if resource.cooldown_progress <= 0.0 : 

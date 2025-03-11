@@ -8,6 +8,7 @@ func _init() -> void :
 
 @onready var turret_name: Label = %TurretName
 @onready var range_value: Label = %RangeValue
+@onready var speed_value: Label = %SpeedValue
 @onready var upgrade_1: UpgradeInfo = %Upgrade1
 @onready var upgrade_2: UpgradeInfo = %Upgrade2
 
@@ -18,18 +19,30 @@ func _ready() -> void :
 	upgrade_1.pressed.connect(on_button_1_pressed)
 	upgrade_2.pressed.connect(on_button_2_pressed)
 	visible = false
+	
+	UserInterface.ref.upgrade_purchased.connect(
+		func() -> void :
+			update_values()
+	)
 
 
 func select(_turret : Turret) -> void : 
 	turret = _turret
+	turret_name.text = turret.resource.name
 	upgrade_1.inject_resource(turret.get_first_upgrade(), turret.resource, 1)
 	upgrade_2.inject_resource(turret.get_second_upgrade(), turret.resource, 2)
+	update_values()
 	visible = true
 
 
 func deselect() -> void : 
 	turret = null
 	visible = false
+
+
+func update_values() -> void : 
+	range_value.text = turret.resource.get_range_text()
+	speed_value.text = turret.resource.get_speed_text()
 
 
 func on_button_1_pressed() -> void : 

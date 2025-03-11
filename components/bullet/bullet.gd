@@ -15,6 +15,7 @@ var lifespan : float = 1.0
 
 func _ready() -> void :
 	rotate(direction.angle())
+	fire_alpha_tween()
 
 
 static func create(_direction : Vector2, _range : float, _pierce : int = 0, _speed : float = 1000.0) -> Bullet : 
@@ -51,3 +52,8 @@ func scan_for_balloon() -> void :
 		
 		if pierce < 0 :
 			queue_free()
+
+
+func fire_alpha_tween() -> void :
+	var tween : Tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.2).from(0.0).set_trans(Tween.TRANS_CIRC)

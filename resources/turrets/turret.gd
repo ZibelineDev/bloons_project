@@ -15,8 +15,20 @@ var second_upgrade_purchased : bool = false
 
 
 func get_speed_text() -> String : 
-	return "duh"
+	if cooldown <= 0.1 : 
+		return "Hypersonic"
+	if cooldown <= 0.8 : 
+		return "Fast"
+	if cooldown <= 1.0 : 
+		return "Normal"
+	return "Slow"
 
 
 func get_range_text() -> String :
-	return "duuh"
+	if turret_range >= 350.0 : 
+		"Very Long"
+	if turret_range >= 200.0 :
+		return "Long"
+	if turret_range >= 150.0 : 
+		return "Medium"
+	return "Short"

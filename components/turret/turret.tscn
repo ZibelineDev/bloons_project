@@ -1,66 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv7ks0wr8gaga"]
+[gd_scene load_steps=7 format=3 uid="uid://dv7ks0wr8gaga"]
 
 [ext_resource type="Script" uid="uid://dstvxhlt8nd77" path="res://components/turret/turret.gd" id="1_csn5j"]
 [ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="1_gh4e7"]
 [ext_resource type="Texture2D" uid="uid://dxlcv21goykj1" path="res://assets/textures/range_indicator.png" id="3_csn5j"]
-[ext_resource type="Script" uid="uid://d4mryqchbegjb" path="res://components/turret/range_animation.gd" id="4_3p72m"]
+[ext_resource type="Script" uid="uid://c4t221qckdhhw" path="res://components/turret/range_indicator.gd" id="4_3p72m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_csn5j"]
 radius = 77.1622
-
-[sub_resource type="Animation" id="Animation_csn5j"]
-resource_name = "ok"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_3p72m"]
-resource_name = "not_ok"
-length = 0.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_xqb6r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.430566, 0.430566)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dljpr"]
-_data = {
-&"RESET": SubResource("Animation_xqb6r"),
-&"not_ok": SubResource("Animation_3p72m"),
-&"ok": SubResource("Animation_csn5j")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csn5j"]
 size = Vector2(32, 32)
@@ -87,12 +33,6 @@ debug_color = Color(0.972699, 0.165938, 0, 0.42)
 unique_name_in_owner = true
 scale = Vector2(0.430566, 0.430566)
 texture = ExtResource("3_csn5j")
-
-[node name="RangeAnimation" type="AnimationPlayer" parent="RangeArea/RangeIndicator"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_dljpr")
-}
 script = ExtResource("4_3p72m")
 
 [node name="BodyArea" type="Area2D" parent="."]

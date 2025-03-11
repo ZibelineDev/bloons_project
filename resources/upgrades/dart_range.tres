@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_bug0h")
 name = "Dart Range"
-cost = 100
+cost = 50
 texture = ExtResource("2_8gh1h")
 metadata/_custom_type_script = "uid://diqh2nbmyf8tr"
