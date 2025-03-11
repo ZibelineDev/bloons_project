@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_mo46h")
+spawn_interval = 0.2
+flavour_text = "Oopsie, the dev forgot to add a flavour text here 🤷"
 content = Array[Vector2i]([Vector2i(1, 25), Vector2i(-1, 2), Vector2i(2, 15), Vector2i(-1, 2), Vector2i(1, 25)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

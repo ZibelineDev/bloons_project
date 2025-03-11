@@ -90,6 +90,7 @@ func initiate_wave() -> void :
 	spawn_completed = false
 	wave_initiated.emit(completed_waves + 1)
 	wave_resource = load(waves[completed_waves])
+	spawn_timer.wait_time = wave_resource.spawn_interval
 	spawn_timer.start()
 
 

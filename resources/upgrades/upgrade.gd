@@ -20,12 +20,10 @@ static var upgrades : Dictionary[List, RUpgrade] = {
 	List.TACK_SPEED : load("uid://bn2et1joi2ftm"),
 	List.TACK_RANGE : load("uid://duvdt0gxlpkjn"),
 	List.FROZEN_TIME : load("uid://ceo61qacbt6p4"),
-	List.FROZEN_RANGE : load("uid://duvdt0gxlpkjn"),
+	List.FROZEN_RANGE : load("uid://be616kmowk0ot"),
 	List.BOMB_RADIUS : load("uid://dr4np1a67yf8q"),
 	List.BOMB_RANGE : load("uid://c3cdg6ctpomr6"),
 	List.SUPERMONKEY_RANGE : load("uid://drcu3ngwbpmcn"),
-	
-	
 }
 
 

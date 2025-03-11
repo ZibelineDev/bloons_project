@@ -41,6 +41,9 @@ func fire_animation() -> void :
 	var body_tween : Tween = create_tween()
 	var body_rotation : float = (%Body as Sprite2D).rotation + deg_to_rad(45.0)
 	body_tween.tween_property(%Body, "rotation", body_rotation, 0.3)
+	var canon_rotation : float = (%Canons as Sprite2D).rotation + deg_to_rad(-45.0)
+	tween.set_parallel(true)
+	tween.tween_property(%Canons, "rotation", canon_rotation, 0.3)
 
 
 func select() -> void : 
