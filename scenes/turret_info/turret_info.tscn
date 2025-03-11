@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqarudu2l5vn7"]
+[gd_scene load_steps=3 format=3 uid="uid://bqarudu2l5vn7"]
 
 [ext_resource type="Script" uid="uid://cnemnvkeyt0i4" path="res://scenes/turret_info/turret_info.gd" id="1_frd0q"]
+[ext_resource type="PackedScene" uid="uid://b81vp2tj7wqi" path="res://components/upgrade_info/upgrade_info.tscn" id="2_dksgw"]
 
 [node name="TurretInfo" type="VBoxContainer"]
+offset_right = 240.0
+offset_bottom = 400.0
 script = ExtResource("1_frd0q")
 
 [node name="TurretName" type="Label" parent="."]
@@ -63,19 +66,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 224)
 layout_mode = 2
 
-[node name="Upgrade1" type="Button" parent="UpgradeButtons"]
+[node name="Upgrade1" parent="UpgradeButtons" instance=ExtResource("2_dksgw")]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgr"
 
-[node name="Upgrade2" type="Button" parent="UpgradeButtons"]
+[node name="Upgrade2" parent="UpgradeButtons" instance=ExtResource("2_dksgw")]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgr"
 
 [node name="SellButton" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 40)

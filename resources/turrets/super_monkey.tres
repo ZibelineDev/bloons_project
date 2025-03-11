@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RTurret" load_steps=2 format=3 uid="uid://cmvn68axxmm4"]
+
+[ext_resource type="Script" uid="uid://b1145c1qsa2tf" path="res://resources/turrets/turret.gd" id="1_rrjgi"]
+
+[resource]
+script = ExtResource("1_rrjgi")
+type = 4
+name = "Super Monkey"
+cost = 4000
+cooldown = 1.5
+cooldown_progress = 0.0
+turret_range = 100.0
+description = "Oopsie, no description yet 🤷"
+metadata/_custom_type_script = "uid://b1145c1qsa2tf"

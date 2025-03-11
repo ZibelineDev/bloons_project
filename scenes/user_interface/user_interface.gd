@@ -8,6 +8,8 @@ func _init() -> void :
 
 @warning_ignore("unused_signal")
 signal create_turret_pressed(type : Turret.Types)
+@warning_ignore("unused_signal")
+signal upgrade_purchased
 
 
 @onready var feedback_label : RichTextLabel = %FeedbackLabel
@@ -21,5 +23,12 @@ func _ready() -> void :
 func create_feedback(text : String) -> void : 
 	feedback_label.text = text
 	feedback_container.visible = true
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(get_feedback_time()).timeout
 	feedback_container.visible = false
+
+
+func get_feedback_time() -> float : 
+	if (SpeedScale as ASpeedScale).is_bending_time() : 
+		return 20.0
+	else : 
+		return 5.0

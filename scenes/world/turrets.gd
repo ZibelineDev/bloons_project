@@ -43,6 +43,7 @@ func try_to_purchase(type : Turret.Types) -> void :
 	if ghost_turret : return
 	if not (Currency as ACurrency).consume_currency(Turret.turrets[type].cost) : 
 		create_ghost_turret(type)
+		Turret.deselect_current_turret()
 
 
 func on_create_turret_pressed(type : Turret.Types) -> void : 

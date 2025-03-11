@@ -4,7 +4,7 @@ class_name Turret extends CharacterBody2D
 enum Types {
 	DART,
 	TACK,
-	FREEZE,
+	FROZEN,
 	BOMB,
 	HYPERSONIC,
 }
@@ -12,7 +12,10 @@ enum Types {
 
 static var turrets : Dictionary[Turret.Types, RTurret] = {
 	Turret.Types.DART : load("uid://dtsegxyhlj16x"),
-	Turret.Types.TACK : load("uid://bs5qk4acwxdp4")
+	Turret.Types.TACK : load("uid://bs5qk4acwxdp4"),
+	Turret.Types.FROZEN : load("uid://bah20vq8ns2mr"),
+	Turret.Types.BOMB : load("uid://dh3y4o2qayf4v"),
+	Turret.Types.HYPERSONIC : load("uid://cmvn68axxmm4"),
 }
 
 
@@ -41,13 +44,20 @@ func _input(event : InputEvent) -> void :
 
 
 func _physics_process(delta : float) -> void :
-	if ghosted : return 
-	
-	if resource.cooldown_progress <= 0.0 : 
-		scan_for_balloons()
+	if ghosted :
+		if is_colliding() : 
+			range_indicator.modulate = Color.RED
+			(%RangeAnimation as AnimationPlayer).play("not_ok")
+		else : 
+			range_indicator.modulate = Color.GREEN
+			(%RangeAnimation as AnimationPlayer).play("ok")
 	
 	else : 
-		resource.cooldown_progress -= delta
+		if resource.cooldown_progress <= 0.0 : 
+			scan_for_balloons()
+		
+		else : 
+			resource.cooldown_progress -= delta
 
 
 func on_pressed() -> void : 
@@ -104,6 +114,7 @@ func is_colliding() -> bool :
 func place() -> void : 
 	ghosted = false
 	range_indicator.visible = false
+	range_indicator.modulate = Color.WHITE
 	(%TurretCollision as CollisionShape2D).disabled = false
 	(%BodyArea as Area2D).monitoring = false
 	move_and_slide()
@@ -137,6 +148,7 @@ func try_to_purchase_first_upgrade() -> void :
 	if not (Currency as ACurrency).consume_currency(get_first_upgrade().cost) :
 		resource.first_upgrade_purchased = true
 		apply_first_upgrade()
+		UserInterface.ref.upgrade_purchased.emit()
 
 
 func apply_first_upgrade() -> void : 
@@ -153,6 +165,7 @@ func try_to_purchase_second_upgrade() -> void :
 	if not (Currency as ACurrency).consume_currency(get_second_upgrade().cost) :
 		resource.second_upgrade_purchased = true
 		apply_second_upgrade()
+		UserInterface.ref.upgrade_purchased.emit()
 
 
 func apply_second_upgrade() -> void : 

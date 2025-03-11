@@ -4,6 +4,8 @@ class_name DartTurret extends Turret
 static var this_scene : String = "uid://c7wyccupdxmxc"
 static var this_resource : String = "uid://dtsegxyhlj16x"
 
+@onready var hand: Sprite2D = %Hand
+@onready var sprites: Node2D = %Sprites
 
 var pierce : int = 0
 
@@ -18,6 +20,14 @@ static func create_this() -> Turret :
 func fire(target : Balloon) -> void :
 	var direction : Vector2 = (target.global_position - global_position).normalized()
 	add_child(Bullet.create(direction, resource.turret_range + 10.0 , pierce, 1750.0))
+	sprites.rotation = direction.angle()
+	fire_animation()
+
+
+func fire_animation() -> void : 
+	var tween : Tween = create_tween()
+	tween.tween_property(hand, "position:x", 24, 0.1)
+	tween.tween_property(hand, "position:x", 0, 0.1)
 
 
 func select() -> void : 

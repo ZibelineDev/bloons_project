@@ -26,7 +26,21 @@ static func create_this() -> Turret :
 
 func fire(_target : Balloon) -> void :
 	for direction : Vector2 in directions :
-		add_child(Bullet.create(direction, resource.turret_range + 15.0))
+		add_child(Bullet.create(direction, resource.turret_range + 25.0))
+	fire_animation()
+
+
+func fire_animation() -> void : 
+	var tween : Tween = create_tween()
+	tween.tween_property(%Canons, "scale", Vector2(0.95, 0.95), 0.1)
+	tween.tween_property(%Canons, "scale", Vector2(1.0, 1.0), 0.2)
+	
+	#var body_tween : Tween = create_tween()
+	#body_tween.tween_property(%Body, "rotation", deg_to_rad(360.0), 0.3).from(0.0)
+	
+	var body_tween : Tween = create_tween()
+	var body_rotation : float = (%Body as Sprite2D).rotation + deg_to_rad(45.0)
+	body_tween.tween_property(%Body, "rotation", body_rotation, 0.3)
 
 
 func select() -> void : 

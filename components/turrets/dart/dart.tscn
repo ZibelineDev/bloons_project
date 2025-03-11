@@ -1,13 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7wyccupdxmxc"]
+[gd_scene load_steps=9 format=3 uid="uid://c7wyccupdxmxc"]
 
 [ext_resource type="PackedScene" uid="uid://dv7ks0wr8gaga" path="res://components/turret/turret.tscn" id="1_jpew3"]
 [ext_resource type="Script" uid="uid://do1h145nrdee7" path="res://components/turrets/dart/dart.gd" id="2_f0wv1"]
+[ext_resource type="Texture2D" uid="uid://bujxjdv3ivnvi" path="res://assets/textures/monkey_shadow.png" id="3_86yfg"]
+[ext_resource type="Texture2D" uid="uid://lqxk12e1t7de" path="res://assets/textures/monkey_hand.png" id="3_yalm1"]
+[ext_resource type="Texture2D" uid="uid://bwi834nw1h4a3" path="res://assets/textures/monkey.png" id="4_86yfg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f0wv1"]
 radius = 77.1622
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_86yfg"]
+radius = 27.1662
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcj0a"]
+radius = 27.0185
+
 [node name="Dart" instance=ExtResource("1_jpew3")]
 script = ExtResource("2_f0wv1")
 
+[node name="Sprites" type="Node2D" parent="." index="0"]
+unique_name_in_owner = true
+
+[node name="Shadow" type="Sprite2D" parent="Sprites" index="0"]
+visible = false
+position = Vector2(11, 0)
+rotation = -1.5708
+texture = ExtResource("3_86yfg")
+
+[node name="Hand" type="Sprite2D" parent="Sprites" index="1"]
+unique_name_in_owner = true
+position = Vector2(11, 11)
+rotation = -1.5708
+texture = ExtResource("3_yalm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites" index="2"]
+rotation = -1.5708
+texture = ExtResource("4_86yfg")
+offset = Vector2(0, -8)
+
+[node name="Sprite2DPlaceholder" parent="." index="1"]
+visible = false
+
 [node name="RangeAreaCollision" parent="RangeArea" index="0"]
 shape = SubResource("CircleShape2D_f0wv1")
+
+[node name="BodyAreaCollision" parent="BodyArea" index="0"]
+shape = SubResource("CircleShape2D_86yfg")
+
+[node name="TurretCollision" parent="." index="4"]
+shape = SubResource("CircleShape2D_tcj0a")
+
+[node name="Button" parent="." index="5"]
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0

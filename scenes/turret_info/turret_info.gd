@@ -8,8 +8,8 @@ func _init() -> void :
 
 @onready var turret_name: Label = %TurretName
 @onready var range_value: Label = %RangeValue
-@onready var upgrade_1: Button = %Upgrade1
-@onready var upgrade_2: Button = %Upgrade2
+@onready var upgrade_1: UpgradeInfo = %Upgrade1
+@onready var upgrade_2: UpgradeInfo = %Upgrade2
 
 var turret : Turret 
 
@@ -22,10 +22,8 @@ func _ready() -> void :
 
 func select(_turret : Turret) -> void : 
 	turret = _turret
-	var _upgrade_1 : RUpgrade = turret.get_first_upgrade()
-	upgrade_1.text = "%s\n%s" %[_upgrade_1.name, _upgrade_1.cost]
-	var _upgrade_2 : RUpgrade = turret.get_second_upgrade()
-	upgrade_2.text = "%s\n%s" %[_upgrade_2.name, _upgrade_2.cost]
+	upgrade_1.inject_resource(turret.get_first_upgrade(), turret.resource, 1)
+	upgrade_2.inject_resource(turret.get_second_upgrade(), turret.resource, 2)
 	visible = true
 
 
