@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_i5hw6")
 type = 3
-name = "Frozen"
+name = "Bomb"
 cost = 900
-cooldown = 1.5
+cooldown = 0.75
 cooldown_progress = 0.0
-turret_range = 100.0
+turret_range = 135.0
 description = "Oopsie, no description yet 🤷"
 metadata/_custom_type_script = "uid://b1145c1qsa2tf"

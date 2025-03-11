@@ -6,6 +6,11 @@ enum List {
 	DART_RANGE,
 	TACK_SPEED,
 	TACK_RANGE,
+	FROZEN_TIME,
+	FROZEN_RANGE,
+	BOMB_RADIUS,
+	BOMB_RANGE,
+	SUPERMONKEY_RANGE,
 }
 
 
@@ -14,6 +19,13 @@ static var upgrades : Dictionary[List, RUpgrade] = {
 	List.DART_RANGE : load("uid://cs3a0dadhls8h"),
 	List.TACK_SPEED : load("uid://bn2et1joi2ftm"),
 	List.TACK_RANGE : load("uid://duvdt0gxlpkjn"),
+	List.FROZEN_TIME : load("uid://ceo61qacbt6p4"),
+	List.FROZEN_RANGE : load("uid://duvdt0gxlpkjn"),
+	List.BOMB_RADIUS : load("uid://dr4np1a67yf8q"),
+	List.BOMB_RANGE : load("uid://c3cdg6ctpomr6"),
+	List.SUPERMONKEY_RANGE : load("uid://drcu3ngwbpmcn"),
+	
+	
 }
 
 

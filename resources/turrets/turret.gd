@@ -21,7 +21,9 @@ func get_speed_text() -> String :
 		return "Fast"
 	if cooldown <= 1.0 : 
 		return "Normal"
-	return "Slow"
+	if cooldown <= 1.5 : 
+		return "Slow"
+	return "Very Slow"
 
 
 func get_range_text() -> String :

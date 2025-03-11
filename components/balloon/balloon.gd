@@ -7,6 +7,9 @@ static var scene : PackedScene = load("uid://7tgh7f8vdhwo")
 var speed : float = 75.0
 var level : int = 0
 
+var frozen : bool = false
+var frozen_progress : float = 0.0
+
 
 @onready var base: Sprite2D = %Base
 
@@ -24,6 +27,12 @@ static func create(_level : int = 0) -> Balloon :
 
 
 func _physics_process(delta : float) -> void :
+	if frozen :
+		frozen_progress -= delta
+		if frozen_progress <= 0 :
+			frozen = false
+		return
+	
 	progress += delta * speed
 	
 	if progress_ratio >= 1.0 : 
@@ -34,6 +43,11 @@ func update() -> void :
 	update_scale()
 	update_colour()
 	update_speed()
+
+
+func freeze(duration : float) -> void : 
+	frozen = true
+	frozen_progress = duration
 
 
 func update_scale() -> void :
@@ -62,7 +76,10 @@ func update_speed() -> void  :
 		5 : speed = 325.0
 
 
-func pop() -> void : 
+func pop(dart_damage : bool = true) -> void : 
+	if frozen and dart_damage : 
+		return
+	
 	(Sounds as ASounds).play_pop()
 	(Currency as ACurrency).create_currency(1)
 	

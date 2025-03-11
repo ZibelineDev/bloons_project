@@ -6,4 +6,4 @@ func _ready() -> void :
 
 
 func on_wave_completed(new_value : int) -> void : 
-	text = "Waves Completed : %s" %new_value
+	text = "Round : %s" %new_value

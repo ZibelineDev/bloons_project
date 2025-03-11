@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RUpgrade" load_steps=3 format=3 uid="uid://c3cdg6ctpomr6"]
+
+[ext_resource type="Script" uid="uid://diqh2nbmyf8tr" path="res://resources/upgrades/upgrade.gd" id="1_mtfn4"]
+[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="2_qkesh"]
+
+[resource]
+script = ExtResource("1_mtfn4")
+name = "Bomb Range"
+cost = 250
+texture = ExtResource("2_qkesh")
+metadata/_custom_type_script = "uid://diqh2nbmyf8tr"

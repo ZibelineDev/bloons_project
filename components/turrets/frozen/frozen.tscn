@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnwrwblkx6wm4"]
+
+[ext_resource type="PackedScene" uid="uid://dv7ks0wr8gaga" path="res://components/turret/turret.tscn" id="1_vvjux"]
+[ext_resource type="Script" uid="uid://ckp673od0ee7s" path="res://components/turrets/frozen/frozen.gd" id="2_bjooh"]
+
+[node name="Frozen" instance=ExtResource("1_vvjux")]
+script = ExtResource("2_bjooh")
+
+[node name="Sprite2DPlaceholder" parent="." index="0"]
+modulate = Color(0, 0.648633, 0.671276, 1)

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_dy5ir")
-name = "Tack Range"
-cost = 150
+name = "Freeze Range"
+cost = 300
 texture = ExtResource("2_lbtme")
 metadata/_custom_type_script = "uid://diqh2nbmyf8tr"

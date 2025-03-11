@@ -1,13 +1,11 @@
-class_name DartTurret extends Turret
+class_name SuperMonkeyTurret extends Turret 
 
 
-static var this_scene : String = "uid://c7wyccupdxmxc"
-static var this_resource : String = "uid://dtsegxyhlj16x"
+static var this_scene : String = "uid://ul65opl34wt8"
+static var this_resource : String = "uid://cmvn68axxmm4"
 
-@onready var hand: Sprite2D = %Hand
 @onready var sprites: Node2D = %Sprites
-
-var pierce : int = 0
+@onready var hand: Sprite2D = %Hand
 
 
 static func create_this() -> Turret :
@@ -19,7 +17,7 @@ static func create_this() -> Turret :
 
 func fire(target : Balloon) -> void :
 	var direction : Vector2 = (target.global_position - global_position).normalized()
-	add_child(Bullet.create(direction, resource.turret_range + 10.0 , pierce, 1750.0))
+	add_child(Bullet.create(direction, resource.turret_range + 10.0 , 0, 1750.0))
 	sprites.rotation = direction.angle()
 	fire_animation()
 
@@ -31,17 +29,17 @@ func fire_animation() -> void :
 
 
 func get_first_upgrade() -> RUpgrade : 
-	return RUpgrade.upgrades[RUpgrade.List.DART_PIERCE]
+	return RUpgrade.upgrades[RUpgrade.List.SUPERMONKEY_RANGE]
 
 
 func apply_first_upgrade() -> void : 
-	pierce = 1
+	resource.turret_range += 100.0
+	update_range()
 
 
 func get_second_upgrade() -> RUpgrade: 
-	return RUpgrade.upgrades[RUpgrade.List.DART_RANGE]
+	return RUpgrade.upgrades[RUpgrade.List.FROZEN_RANGE]
 
 
 func apply_second_upgrade() -> void : 
-	resource.turret_range += 50.0
-	update_range()
+	pass

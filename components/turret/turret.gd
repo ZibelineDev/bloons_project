@@ -11,11 +11,11 @@ enum Types {
 
 
 static var turrets : Dictionary[Turret.Types, RTurret] = {
-	Turret.Types.DART : load("uid://dtsegxyhlj16x"),
-	Turret.Types.TACK : load("uid://bs5qk4acwxdp4"),
-	Turret.Types.FROZEN : load("uid://bah20vq8ns2mr"),
-	Turret.Types.BOMB : load("uid://dh3y4o2qayf4v"),
-	Turret.Types.HYPERSONIC : load("uid://cmvn68axxmm4"),
+	Types.DART : load("uid://dtsegxyhlj16x"),
+	Types.TACK : load("uid://bs5qk4acwxdp4"),
+	Types.FROZEN : load("uid://bah20vq8ns2mr"),
+	Types.BOMB : load("uid://dh3y4o2qayf4v"),
+	Types.HYPERSONIC : load("uid://cmvn68axxmm4"),
 }
 
 
@@ -87,6 +87,9 @@ static func deselect_current_turret() -> void :
 static func create_ghost(type : Types) -> Turret : 
 	match type : 
 		Types.TACK : return TackTurret.create_this()
+		Types.FROZEN : return FrozenTurret.create_this()
+		Types.HYPERSONIC : return SuperMonkeyTurret.create_this()
+		Types.BOMB : return BombTurret.create_this() 
 		_, Types.DART : return DartTurret.create_this()
 
 
