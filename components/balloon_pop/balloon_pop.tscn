@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dipfxbv7s62bl"]
+
+[ext_resource type="Texture2D" uid="uid://cwmuagppo1pq3" path="res://assets/textures/pop_effect.png" id="1_343uj"]
+[ext_resource type="Script" uid="uid://djed8wh2uydja" path="res://components/balloon_pop/balloon_pop.gd" id="2_5u51j"]
+
+[node name="BalloonPop" type="Sprite2D"]
+texture = ExtResource("1_343uj")
+script = ExtResource("2_5u51j")

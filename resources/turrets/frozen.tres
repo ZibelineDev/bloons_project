@@ -10,5 +10,5 @@ cost = 850
 cooldown = 2.5
 cooldown_progress = 0.0
 turret_range = 100.0
-description = "Oopsie, no description yet 🤷"
+description = "Ice Towers freeze balloons for a short period of time. "
 metadata/_custom_type_script = "uid://b1145c1qsa2tf"

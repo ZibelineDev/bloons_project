@@ -10,5 +10,5 @@ cost = 900
 cooldown = 0.75
 cooldown_progress = 0.0
 turret_range = 135.0
-description = "Oopsie, no description yet 🤷"
+description = "Bomb Towers launch bombs that explode on impact. Bomb Towers work well when near an Ice Tower"
 metadata/_custom_type_script = "uid://b1145c1qsa2tf"

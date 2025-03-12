@@ -98,6 +98,7 @@ func pop(dart_damage : bool = true) -> void :
 		update()
 		return
 	if level <= 0 :
+		BalloonPopsPool.ref.trigger_balloon_pop(global_position)
 		queue_free()
 
 

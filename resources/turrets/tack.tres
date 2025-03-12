@@ -10,4 +10,5 @@ cost = 400
 cooldown = 1.5
 cooldown_progress = 0.0
 turret_range = 100.0
+description = "Tack Towers shoot 8 tacks in 8 directions at certain intervals."
 metadata/_custom_type_script = "uid://b1145c1qsa2tf"

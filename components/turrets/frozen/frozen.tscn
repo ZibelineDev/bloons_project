@@ -1,10 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnwrwblkx6wm4"]
+[gd_scene load_steps=6 format=3 uid="uid://bnwrwblkx6wm4"]
 
 [ext_resource type="PackedScene" uid="uid://dv7ks0wr8gaga" path="res://components/turret/turret.tscn" id="1_vvjux"]
 [ext_resource type="Script" uid="uid://ckp673od0ee7s" path="res://components/turrets/frozen/frozen.gd" id="2_bjooh"]
+[ext_resource type="Texture2D" uid="uid://d28jydd0du6dk" path="res://assets/textures/ice_turret.png" id="3_sw3s6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77y08"]
+radius = 27.074
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3lg4"]
+radius = 27.0185
 
 [node name="Frozen" instance=ExtResource("1_vvjux")]
 script = ExtResource("2_bjooh")
 
-[node name="Sprite2DPlaceholder" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_sw3s6")
+
+[node name="Sprite2DPlaceholder" parent="." index="1"]
+visible = false
 modulate = Color(0, 0.648633, 0.671276, 1)
+texture = ExtResource("3_sw3s6")
+
+[node name="BodyAreaCollision" parent="BodyArea" index="0"]
+shape = SubResource("CircleShape2D_77y08")
+
+[node name="TurretCollision" parent="." index="4"]
+shape = SubResource("CircleShape2D_i3lg4")
+
+[node name="Button" parent="." index="5"]
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 25.0
+offset_bottom = 27.0
