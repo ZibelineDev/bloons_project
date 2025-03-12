@@ -1,4 +1,4 @@
-class_name UserInterface extends HBoxContainer
+class_name UserInterface extends Control
 
 static var ref : UserInterface
 
@@ -29,6 +29,6 @@ func create_feedback(text : String) -> void :
 
 func get_feedback_time() -> float : 
 	if (SpeedScale as ASpeedScale).is_bending_time() : 
-		return 20.0
+		return 40.0
 	else : 
-		return 5.0
+		return 10.0

@@ -5,7 +5,13 @@ signal began_bending_time
 signal stopped_bending_time
 
 
-var toggled : bool = false
+var toggled : bool
+
+
+func initialise() -> void : 
+	toggled = false
+	Engine.time_scale = 1.0
+	Engine.physics_ticks_per_second = 60
 
 
 func is_bending_time() -> bool :

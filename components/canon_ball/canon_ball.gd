@@ -24,6 +24,7 @@ static func create(_direction : Vector2, _range : float, _speed : float = 1000.0
 	canon_ball.bullet_range = _range
 	canon_ball.speed = _speed 
 	canon_ball.radius += extra_radius
+	canon_ball.rotation = _direction.angle() + deg_to_rad(90)
 	return canon_ball
 
 

@@ -5,6 +5,19 @@ static var this_scene : String = "uid://cu327014ytild"
 static var this_resource : String = "uid://dh3y4o2qayf4v"
 
 var extra_radius : float = 0.0
+var reload : Tween
+
+@onready var missile: Sprite2D = %Missile
+
+
+func _ready() -> void :
+	super()
+	reload = get_tree().create_tween()
+	reload.tween_property(missile, "scale", Vector2(1.0, 1.0), 1.0)
+	reload.set_parallel()
+	reload.tween_property(missile, "modulate", Color.WHITE, 1.0).from(Color.BLACK)
+	reload.finished.connect(func() -> void : reload.stop())
+	reload.stop()
 
 
 static func create_this() -> Turret :
@@ -19,11 +32,13 @@ func fire(target : Balloon) -> void :
 	var direction : Vector2 = canon_ball_range.normalized()
 	
 	add_child(CanonBall.create(direction, canon_ball_range.length(), 1750.0))
-	fire_animation()
+	fire_animation(direction)
 
 
-func fire_animation() -> void : 
-	pass
+func fire_animation(direction : Vector2) -> void : 
+	missile.rotation = direction.angle() + deg_to_rad(90)
+	missile.scale = Vector2.ZERO
+	reload.play()
 
 
 func get_first_upgrade() -> RUpgrade : 
@@ -31,6 +46,7 @@ func get_first_upgrade() -> RUpgrade :
 
 
 func apply_first_upgrade() -> void : 
+	super()
 	extra_radius = 10.0
 
 
@@ -39,5 +55,6 @@ func get_second_upgrade() -> RUpgrade:
 
 
 func apply_second_upgrade() -> void : 
+	super()
 	resource.turret_range += 25.0
 	update_range()

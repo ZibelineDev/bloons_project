@@ -55,6 +55,7 @@ func get_first_upgrade() -> RUpgrade :
 
 
 func apply_first_upgrade() -> void : 
+	super()
 	resource.cooldown -= 0.5
 
 
@@ -63,5 +64,6 @@ func get_second_upgrade() -> RUpgrade :
 
 
 func apply_second_upgrade() -> void : 
+	super()
 	resource.turret_range += 25.0
 	update_range()

@@ -27,11 +27,13 @@ var ghosted : bool = true
 var selected : bool = false
 
 var resource : RTurret 
+var value : int
 
 @onready var range_indicator: TurretRangeIndicator = %RangeIndicator
 
 
 func _ready() -> void :
+	value = resource.cost
 	ghosted = true
 	selected = false
 	range_indicator.visible = true
@@ -128,7 +130,6 @@ func scan_for_balloons() -> void :
 	var target : BalloonArea2D = null
 	
 	for balloon_area : BalloonArea2D in balloon_areas : 
-		print("Scanning a Balloon")
 		if target == null or target.get_progress_ratio() < balloon_area.get_progress_ratio() : 
 			target = balloon_area
 	
@@ -155,7 +156,7 @@ func try_to_purchase_first_upgrade() -> void :
 
 
 func apply_first_upgrade() -> void : 
-	pass
+	value += get_first_upgrade().cost
 
 
 func get_second_upgrade() -> RUpgrade : 
@@ -172,4 +173,10 @@ func try_to_purchase_second_upgrade() -> void :
 
 
 func apply_second_upgrade() -> void : 
-	pass
+	value += get_second_upgrade().cost
+
+
+func sell() -> void : 
+	(Currency as ACurrency).refund_currency(int(value * 0.66))
+	deselect_current_turret()
+	queue_free()

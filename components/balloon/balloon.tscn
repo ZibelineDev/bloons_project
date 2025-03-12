@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://7tgh7f8vdhwo"]
+[gd_scene load_steps=7 format=3 uid="uid://7tgh7f8vdhwo"]
 
 [ext_resource type="Script" uid="uid://dc0bptcwx05pf" path="res://components/balloon/balloon.gd" id="1_kgbnr"]
 [ext_resource type="Texture2D" uid="uid://xvlu7s0vd1wi" path="res://assets/textures/sableTDballoon.png" id="2_4vf2m"]
 [ext_resource type="Script" uid="uid://fl8wuxo08ka3" path="res://components/balloon/static_body_2d.gd" id="3_4vf2m"]
 [ext_resource type="Texture2D" uid="uid://ql5yq6mxmf06" path="res://assets/textures/sableTDballoon_light.png" id="3_7jupt"]
+[ext_resource type="Texture2D" uid="uid://dhyywcgk417u6" path="res://assets/textures/sableTDfrozenpng.png" id="4_0otnp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7jupt"]
 radius = 16.0
@@ -22,6 +23,10 @@ texture = ExtResource("2_4vf2m")
 modulate = Color(1, 1, 1, 0.823529)
 texture_filter = 1
 texture = ExtResource("3_7jupt")
+
+[node name="FrozenEffect" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("4_0otnp")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

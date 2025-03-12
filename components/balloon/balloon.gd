@@ -9,13 +9,20 @@ var level : int = 0
 
 var frozen : bool = false
 var frozen_progress : float = 0.0
+var freeze_in : Tween
+var freeze_out : Tween
+var freeze_count : int = 0
+var freeze_protection : float = 0.0
 
 
 @onready var base: Sprite2D = %Base
+@onready var frozen_effect: Sprite2D = %FrozenEffect
 
 
 func _ready() -> void :
 	update()
+	initialise_tweens()
+	frozen_effect.modulate.a = 0.0
 
 
 static func create(_level : int = 0) -> Balloon : 
@@ -31,12 +38,30 @@ func _physics_process(delta : float) -> void :
 		frozen_progress -= delta
 		if frozen_progress <= 0 :
 			frozen = false
+			freeze_out.play()
+			if freeze_count >= 3 : 
+				freeze_protection = 2.5
 		return
+	
+	if freeze_protection > 0.0 : 
+		freeze_protection -= delta
 	
 	progress += delta * speed
 	
 	if progress_ratio >= 1.0 : 
 		bonk()
+
+
+func initialise_tweens() -> void : 
+	freeze_in = get_tree().create_tween()
+	freeze_in.tween_property(frozen_effect, "modulate:a", 1.0, 0.1)
+	freeze_in.finished.connect(func() -> void : freeze_in.stop())
+	freeze_in.stop()
+	
+	freeze_out = get_tree().create_tween()
+	freeze_out.tween_property(frozen_effect, "modulate:a", 0.0, 0.1)
+	freeze_out.finished.connect(func() -> void : freeze_out.stop())
+	freeze_out.stop()
 
 
 func update() -> void : 
@@ -45,9 +70,12 @@ func update() -> void :
 	update_speed()
 
 
-func freeze(duration : float) -> void : 
-	frozen = true
-	frozen_progress = duration
+func freeze(duration : float) -> void :
+	if not level == 5 and freeze_protection <= 0.0 : 
+		frozen = true
+		frozen_progress = duration
+		freeze_in.play()
+		freeze_count += 1 
 
 
 func update_scale() -> void :
@@ -78,6 +106,8 @@ func update_speed() -> void  :
 
 func pop(dart_damage : bool = true) -> void : 
 	if frozen and dart_damage : 
+		return
+	if level == 4 and not dart_damage : 
 		return
 	
 	(Sounds as ASounds).play_pop()

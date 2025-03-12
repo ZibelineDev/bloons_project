@@ -8,6 +8,7 @@
 script = ExtResource("1_0sr1o")
 
 [node name="World" parent="." instance=ExtResource("1_sul5r")]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
