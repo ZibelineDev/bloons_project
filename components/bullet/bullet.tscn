@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqnn853pecay3"]
 
 [ext_resource type="Script" uid="uid://cg5fh56r2uv4f" path="res://components/bullet/bullet.gd" id="1_142lv"]
-[ext_resource type="Texture2D" uid="uid://xgftqxd2trj0" path="res://assets/textures/balloon_placeholder.png" id="2_j7bu3"]
+[ext_resource type="Texture2D" uid="uid://c4uinpek1xjbc" path="res://assets/textures/dart_03.png" id="2_j7bu3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7bu3"]
-radius = 1.0
+radius = 2.0
+height = 38.0
 
 [node name="Bullet" type="Area2D"]
 z_index = 2
@@ -13,8 +14,7 @@ collision_mask = 2
 script = ExtResource("1_142lv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.9375, 0.0625)
+texture_filter = 1
 texture = ExtResource("2_j7bu3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

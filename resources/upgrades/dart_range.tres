@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RUpgrade" load_steps=3 format=3 uid="uid://cs3a0dadhls8h"]
 
 [ext_resource type="Script" uid="uid://diqh2nbmyf8tr" path="res://resources/upgrades/upgrade.gd" id="1_bug0h"]
-[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="2_8gh1h"]
+[ext_resource type="Texture2D" uid="uid://bcxv5k8woabuu" path="res://assets/textures/upgrades/dart_range.png" id="2_8gh1h"]
 
 [resource]
 script = ExtResource("1_bug0h")

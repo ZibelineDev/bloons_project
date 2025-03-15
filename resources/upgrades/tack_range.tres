@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="RUpgrade" load_steps=3 format=3 uid="uid://duvdt0gxlpkjn"]
 
 [ext_resource type="Script" uid="uid://diqh2nbmyf8tr" path="res://resources/upgrades/upgrade.gd" id="1_dy5ir"]
-[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="2_lbtme"]
+[ext_resource type="Texture2D" uid="uid://d18jwonhrh0x1" path="res://assets/textures/upgrades/tack_range.svg" id="2_dy5ir"]
 
 [resource]
 script = ExtResource("1_dy5ir")
 name = "Tack Range"
 cost = 100
-texture = ExtResource("2_lbtme")
+texture = ExtResource("2_dy5ir")
 metadata/_custom_type_script = "uid://diqh2nbmyf8tr"

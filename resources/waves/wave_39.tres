@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_csktv")
 spawn_interval = 0.1
-flavour_text = "Oopsie, the dev forgot to add a flavour text here 🤷"
-content = Array[Vector2i]([Vector2i(3, 220)])
+flavour_text = "Wow, I didn't throw a Red Balloon in a long time."
+content = Array[Vector2i]([Vector2i(4, 40), Vector2i(3, 50), Vector2i(2, 50), Vector2i(1, 50), Vector2i(0, 50)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

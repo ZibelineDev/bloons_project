@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_jf0cf")
 type = 1
-name = "Tack"
+name = "Tack Tower"
 cost = 400
 cooldown = 1.5
 cooldown_progress = 0.0

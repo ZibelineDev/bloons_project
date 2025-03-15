@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://bpna4we5vs83d"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_vw4v4"]
+
+[resource]
+script = ExtResource("1_vw4v4")
+spawn_interval = 0.05
+flavour_text = "Yay \\o/ I wanted to add conffetis, but emotes don't work on web export :/"
+content = Array[Vector2i]([Vector2i(4, 25), Vector2i(5, 25), Vector2i(4, 25), Vector2i(5, 25), Vector2i(4, 25), Vector2i(5, 25), Vector2i(4, 24), Vector2i(5, 25)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

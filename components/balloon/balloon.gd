@@ -80,7 +80,7 @@ func freeze(duration : float) -> void :
 
 func update_scale() -> void :
 	match level : 
-		4, 5 : scale = Vector2(0.66, 0.66)
+		4, 5 : scale = Vector2(0.80, 0.80)
 		_, 1, 2, 3 : scale = Vector2(1.0, 1.0)
 
 

@@ -36,6 +36,7 @@ func _physics_process(delta : float) -> void :
 	
 	if lifespan <= 0.0 or bullet_range <= 0.0 : 
 		scan_for_balloon()
+		MissileParticlesPool.ref.trigger(global_position)
 
 
 func scan_for_balloon() -> void : 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=17 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -8,15 +8,12 @@
 [ext_resource type="StyleBox" uid="uid://cuhtjcphdy0uq" path="res://assets/styles/panel_style.tres" id="2_pvt6f"]
 [ext_resource type="Script" uid="uid://cio8antyxi7t7" path="res://scenes/user_interface/feedback_panel.gd" id="3_g6pv1"]
 [ext_resource type="Script" uid="uid://c50s11rutbtsj" path="res://scenes/user_interface/wave_button.gd" id="4_2dtu1"]
-[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="6_6xuti"]
 [ext_resource type="Script" uid="uid://db7jp3q724l0f" path="res://scenes/user_interface/turret_shop_icon.gd" id="6_8wifb"]
 [ext_resource type="PackedScene" uid="uid://bqarudu2l5vn7" path="res://scenes/turret_info/turret_info.tscn" id="7_flq3v"]
+[ext_resource type="StyleBox" uid="uid://50gbrgft46ck" path="res://assets/styles/shop_icon_panel.tres" id="9_dvuog"]
 [ext_resource type="PackedScene" uid="uid://dj578mtugchn3" path="res://scenes/purchase_info/purchase_info.tscn" id="10_tfswy"]
 [ext_resource type="Script" uid="uid://w4queq5ektlr" path="res://scenes/user_interface/game_over.gd" id="13_01bs6"]
 [ext_resource type="Script" uid="uid://2ipm4qbn6mfw" path="res://scenes/user_interface/button.gd" id="14_dvuog"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_8wifb"]
-font_color = Color(0.111197, 0.111197, 0.111197, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
 
@@ -176,17 +173,25 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureButton" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
-self_modulate = Color(0.33094, 0.155418, 0.0999727, 1)
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
-texture_normal = ExtResource("6_6xuti")
+focus_mode = 0
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_8wifb")
-texture = ExtResource("6_6xuti")
-label = "D"
 
-[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect"]
+[node name="Panel" type="Panel" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect"]
+self_modulate = Color(0.48717, 0.185707, 0.144423, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("9_dvuog")
+
+[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -194,27 +199,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -17.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "M"
-label_settings = SubResource("LabelSettings_8wifb")
+text = "D"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureButton" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
-self_modulate = Color(0.33094, 0.155418, 0.0999727, 1)
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
+focus_mode = 0
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_8wifb")
 type = 1
-texture = ExtResource("6_6xuti")
-label = "T"
 
-[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect2"]
+[node name="Panel" type="Panel" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect2"]
+self_modulate = Color(0.743658, 0.486143, 0.649653, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("9_dvuog")
+
+[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect2/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -222,27 +236,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -17.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "M"
-label_settings = SubResource("LabelSettings_8wifb")
+text = "T"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect3" type="TextureButton" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
-self_modulate = Color(0.33094, 0.155418, 0.0999727, 1)
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
+focus_mode = 0
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_8wifb")
 type = 2
-texture = ExtResource("6_6xuti")
-label = "F"
 
-[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect3"]
+[node name="Panel" type="Panel" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect3"]
+self_modulate = Color(4.62055e-06, 0.830345, 0.809293, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("9_dvuog")
+
+[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect3/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -250,27 +273,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -17.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "M"
-label_settings = SubResource("LabelSettings_8wifb")
+text = "F"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect4" type="TextureButton" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
-self_modulate = Color(0.33094, 0.155418, 0.0999727, 1)
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
+focus_mode = 0
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_8wifb")
 type = 3
-texture = ExtResource("6_6xuti")
-label = "B"
 
-[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect4"]
+[node name="Panel" type="Panel" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect4"]
+self_modulate = Color(0.133196, 0.133196, 0.133196, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("9_dvuog")
+
+[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect4/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -278,27 +310,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -17.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "M"
-label_settings = SubResource("LabelSettings_8wifb")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect5" type="TextureButton" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets"]
-self_modulate = Color(0.33094, 0.155418, 0.0999727, 1)
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
+focus_mode = 0
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_8wifb")
 type = 4
-texture = ExtResource("6_6xuti")
-label = "H"
 
-[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect5"]
+[node name="Panel" type="Panel" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect5"]
+self_modulate = Color(0.474044, 0.468747, 0.468465, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("9_dvuog")
+
+[node name="Label" type="Label" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Turrets/TextureRect5/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -306,14 +347,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -17.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "M"
-label_settings = SubResource("LabelSettings_8wifb")
+text = "C"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Separator2" type="MarginContainer" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

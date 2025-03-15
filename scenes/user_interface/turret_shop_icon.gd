@@ -6,16 +6,12 @@ class_name TurretShopIcon extends TextureButton
 
 
 @export var type : Turret.Types
-@export var texture : Texture2D
-@export var label : String = ""
 
 
 func _ready() -> void :
 	pressed.connect(on_pressed)
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
-	($Label as Label).text = label
-	texture_normal = texture
 
 
 func on_pressed() -> void : 

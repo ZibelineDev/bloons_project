@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_eya1v")
 type = 0
-name = "Dart"
+name = "Dart Monkey"
 cost = 250
 cooldown = 0.8
 cooldown_progress = 0.0

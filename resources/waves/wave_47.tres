@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://cm0fxylldsgqw"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_babno"]
+
+[resource]
+script = ExtResource("1_babno")
+spawn_interval = 0.05
+flavour_text = "Did you know about the super secret setting ?
+"
+content = Array[Vector2i]([Vector2i(3, 79), Vector2i(4, 70), Vector2i(5, 40)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

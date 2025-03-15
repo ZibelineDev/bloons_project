@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_s3kxk")
 spawn_interval = 0.3
-flavour_text = "From now on, Balloons will spawn faster. Apparently it makes the game less obnoxiously long."
+flavour_text = "From now on, Balloons will spawn faster. Is this harder or just faster ? "
 content = Array[Vector2i]([Vector2i(1, 35), Vector2i(-1, 2), Vector2i(0, 70), Vector2i(-1, 2), Vector2i(1, 35)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

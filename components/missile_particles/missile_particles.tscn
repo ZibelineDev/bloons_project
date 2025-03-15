@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfyfxx6ct6s67"]
+
+[ext_resource type="Texture2D" uid="uid://dajx5n8a7npvf" path="res://assets/textures/cloud_particle.png" id="1_r3c8e"]
+[ext_resource type="Script" uid="uid://bfmhicx14vsc6" path="res://components/missile_particles/missile_particles.gd" id="2_6tccn"]
+
+[sub_resource type="Curve" id="Curve_wlkpv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.658915, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_os7d5"]
+curve = SubResource("Curve_wlkpv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h6n6o"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 60.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_os7d5")
+
+[node name="MissileParticles" type="GPUParticles2D"]
+modulate = Color(0.577008, 0.577008, 0.577008, 1)
+emitting = false
+amount = 36
+texture = ExtResource("1_r3c8e")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_h6n6o")
+script = ExtResource("2_6tccn")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.8
+one_shot = true

@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_i5hw6")
 type = 3
-name = "Bomb"
+name = "Missile Tower"
 cost = 900
 cooldown = 1.2
 cooldown_progress = 0.0
 turret_range = 135.0
-description = "Bomb Towers launch bombs that explode on impact. Bomb Towers work well when near an Ice Tower"
+description = "Missile Towers launch missiles that explode on impact. Missile Towers work well when near an Ice Tower"
 metadata/_custom_type_script = "uid://b1145c1qsa2tf"

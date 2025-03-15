@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_js5ar")
 spawn_interval = 0.2
-flavour_text = "Oopsie, the dev forgot to add a flavour text here 🤷"
+flavour_text = "Sometimes I throw all Balloons of the same colour at once. Sometimes I mix."
 content = Array[Vector2i]([Vector2i(2, 30), Vector2i(1, 30), Vector2i(2, 30)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

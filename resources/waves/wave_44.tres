@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://cx6f1tfi4gug1"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_ufx12"]
+
+[resource]
+script = ExtResource("1_ufx12")
+spawn_interval = 0.05
+flavour_text = "Also this game was fully created during Live Streams."
+content = Array[Vector2i]([Vector2i(4, 120)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

@@ -34,6 +34,11 @@ func select(_turret : Turret) -> void :
 	upgrade_2.inject_resource(turret.get_second_upgrade(), turret.resource, 2)
 	update_values()
 	visible = true
+	
+	if turret.resource.type == Turret.Types.HYPERSONIC : 
+		upgrade_2.visible = false
+	else : 
+		upgrade_2.visible = true
 
 
 func deselect() -> void : 

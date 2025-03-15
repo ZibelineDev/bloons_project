@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_cd5p5")
 spawn_interval = 0.2
-flavour_text = "Oopsie, the dev forgot to add a flavour text here 🤷"
+flavour_text = "Usually I throw weak Balloons first and let Faster Balloons catch up. Is this the way to go ? "
 content = Array[Vector2i]([Vector2i(2, 90)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

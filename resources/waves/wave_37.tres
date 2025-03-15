@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_musmf")
 spawn_interval = 0.1
-flavour_text = "Oopsie, the dev forgot to add a flavour text here 🤷"
-content = Array[Vector2i]([Vector2i(4, 35), Vector2i(3, 115)])
+flavour_text = "At some point I thought about adding GrandMas instead of Monkeys."
+content = Array[Vector2i]([Vector2i(4, 59)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

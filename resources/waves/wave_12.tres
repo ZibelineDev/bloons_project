@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_aq0xn")
 spawn_interval = 0.2
-flavour_text = "Oopsie, the dev forgot to add a flavour text here 🤷"
-content = Array[Vector2i]([Vector2i(3, 15)])
+flavour_text = "I made a mistake while populating this wave. But I fixed it, don't worry.
+"
+content = Array[Vector2i]([Vector2i(1, 25), Vector2i(2, 25), Vector2i(3, 3)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

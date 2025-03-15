@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://bq0n8mnb7878p"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_16ij8"]
+
+[resource]
+script = ExtResource("1_16ij8")
+spawn_interval = 0.05
+flavour_text = "You should have your first Robot by now. Do you ?"
+content = Array[Vector2i]([Vector2i(5, 120)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

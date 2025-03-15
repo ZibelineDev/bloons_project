@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_dxly5")
 type = 2
-name = "Ice"
+name = "Ice Tower"
 cost = 850
 cooldown = 2.5
 cooldown_progress = 0.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqarudu2l5vn7"]
+[gd_scene load_steps=4 format=3 uid="uid://bqarudu2l5vn7"]
 
 [ext_resource type="Script" uid="uid://cnemnvkeyt0i4" path="res://scenes/turret_info/turret_info.gd" id="1_frd0q"]
+[ext_resource type="LabelSettings" uid="uid://b73yi7bs12bt7" path="res://assets/styles/bold.tres" id="2_0uvy1"]
 [ext_resource type="PackedScene" uid="uid://b81vp2tj7wqi" path="res://components/upgrade_info/upgrade_info.tscn" id="2_dksgw"]
 
 [node name="TurretInfo" type="VBoxContainer"]
@@ -12,6 +13,7 @@ script = ExtResource("1_frd0q")
 unique_name_in_owner = true
 layout_mode = 2
 text = "Turret Name"
+label_settings = ExtResource("2_0uvy1")
 horizontal_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
@@ -28,6 +30,7 @@ layout_mode = 2
 [node name="Speed" type="Label" parent="SpeedLabels"]
 layout_mode = 2
 text = "Speed :"
+label_settings = ExtResource("2_0uvy1")
 
 [node name="Space" type="Control" parent="SpeedLabels"]
 layout_mode = 2
@@ -44,6 +47,7 @@ layout_mode = 2
 [node name="Range" type="Label" parent="RangeLabels"]
 layout_mode = 2
 text = "Range : "
+label_settings = ExtResource("2_0uvy1")
 
 [node name="Space" type="Control" parent="RangeLabels"]
 layout_mode = 2
@@ -69,13 +73,16 @@ layout_mode = 2
 [node name="Upgrade1" parent="UpgradeButtons" instance=ExtResource("2_dksgw")]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 
 [node name="Upgrade2" parent="UpgradeButtons" instance=ExtResource("2_dksgw")]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 
 [node name="SellButton" type="Button" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+focus_mode = 0
 text = "Sell"

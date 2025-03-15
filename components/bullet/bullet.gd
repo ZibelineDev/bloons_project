@@ -56,4 +56,4 @@ func scan_for_balloon() -> void :
 
 func fire_alpha_tween() -> void :
 	var tween : Tween = create_tween()
-	tween.tween_property(self, "modulate:a", 1.0, 0.2).from(0.0).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(self, "modulate:a", 1.0, 0.15).from(0.0).set_trans(Tween.TRANS_CIRC)

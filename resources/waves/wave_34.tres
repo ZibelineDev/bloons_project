@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_jf2yv")
 spawn_interval = 0.1
-flavour_text = "Oopsie, the dev forgot to add a flavour text here 🤷"
-content = Array[Vector2i]([Vector2i(3, 150)])
+flavour_text = "The art in this game is fully made with Inkscape."
+content = Array[Vector2i]([Vector2i(4, 25), Vector2i(3, 35), Vector2i(2, 35)])
 metadata/_custom_type_script = "uid://dpngx7esnxnc"

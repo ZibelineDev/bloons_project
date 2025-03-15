@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://dpxheevie4awb"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_prw8q"]
+
+[resource]
+script = ExtResource("1_prw8q")
+spawn_interval = 0.05
+flavour_text = "White and Black Balloons are probably very strong. Maybe I'll have nerfed them by the day you play the game."
+content = Array[Vector2i]([Vector2i(5, 30), Vector2i(4, 30), Vector2i(5, 20)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

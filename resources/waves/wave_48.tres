@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://cbv2sjgr2x1tr"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_r8q5m"]
+
+[resource]
+script = ExtResource("1_r8q5m")
+spawn_interval = 0.05
+flavour_text = "For example you can Press S three times to get a boost in Money. But that's cheating."
+content = Array[Vector2i]([Vector2i(3, 70), Vector2i(4, 80), Vector2i(5, 80)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

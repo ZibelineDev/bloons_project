@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="RUpgrade" load_steps=3 format=3 uid="uid://be616kmowk0ot"]
 
 [ext_resource type="Script" uid="uid://diqh2nbmyf8tr" path="res://resources/upgrades/upgrade.gd" id="1_n5vib"]
-[ext_resource type="Texture2D" uid="uid://c3p8eikgvro2q" path="res://assets/textures/turret_placeholder.png" id="2_m2if5"]
+[ext_resource type="Texture2D" uid="uid://cah4h1ujrpsc4" path="res://assets/textures/upgrades/snowflakes.png" id="2_n5vib"]
 
 [resource]
 script = ExtResource("1_n5vib")
 name = "Freeze Range"
 cost = 250
-texture = ExtResource("2_m2if5")
+texture = ExtResource("2_n5vib")
 metadata/_custom_type_script = "uid://diqh2nbmyf8tr"

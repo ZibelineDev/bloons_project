@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RWave" load_steps=2 format=3 uid="uid://c0je0n4w4d1p3"]
+
+[ext_resource type="Script" uid="uid://dpngx7esnxnc" path="res://resources/waves/wave.gd" id="1_k4egi"]
+
+[resource]
+script = ExtResource("1_k4egi")
+spawn_interval = 0.05
+flavour_text = "One more to go."
+content = Array[Vector2i]([Vector2i(3, 99), Vector2i(5, 70), Vector2i(4, 90)])
+metadata/_custom_type_script = "uid://dpngx7esnxnc"

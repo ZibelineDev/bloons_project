@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b56y4ugo6mni"]
+[gd_scene load_steps=13 format=3 uid="uid://b56y4ugo6mni"]
 
 [ext_resource type="Texture2D" uid="uid://pb8y81dnnlxg" path="res://assets/textures/world_placeholder.png" id="1_dphjl"]
 [ext_resource type="Script" uid="uid://bd8caswo6j235" path="res://scenes/world/world.gd" id="1_v5dby"]
@@ -8,12 +8,14 @@
 [ext_resource type="Script" uid="uid://bbuop8ui68av2" path="res://scenes/world/turrets.gd" id="4_t5ptc"]
 [ext_resource type="Script" uid="uid://0a0bqpmwiafn" path="res://scenes/world/balloon_pops_pool.gd" id="7_j2gmx"]
 [ext_resource type="PackedScene" uid="uid://dipfxbv7s62bl" path="res://components/balloon_pop/balloon_pop.tscn" id="8_1yooq"]
+[ext_resource type="Script" uid="uid://dthnv8wo761kn" path="res://scenes/world/missile_particles_pool.gd" id="9_1yooq"]
+[ext_resource type="PackedScene" uid="uid://bfyfxx6ct6s67" path="res://components/missile_particles/missile_particles.tscn" id="10_gb53w"]
 
 [sub_resource type="Curve2D" id="Curve2D_sl2e5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -11, 441, 0, 0, 0, 0, 157, 431, 0, 0, 0, 0, 190, 407, 0, 0, 0, 0, 196, 376, 0, 0, 0, 0, 208, 273, 0, 0, 0, 0, 224, 247, 0, 0, 0, 0, 271, 225, 0, 0, 0, 0, 330, 220, 0, 0, 0, 0, 383, 235, 0, 0, 0, 0, 399, 253, 0, 0, 0, 0, 405, 278, 0, 0, 0, 0, 407, 368, 0, 0, 0, 0, 405, 464, 0, 0, 0, 0, 405, 516, 0, 0, 0, 0, 404, 614, 0, 0, 0, 0, 390, 637, 0, 0, 0, 0, 359, 656, 0, 0, 0, 0, 319, 659, 0, 0, 0, 0, 265, 659, 0, 0, 0, 0, 220, 659, 0, 0, 0, 0, 179, 663, 0, 0, 0, 0, 147, 679, 0, 0, 0, 0, 135, 715, 0, 0, 0, 0, 136, 760, 0, 0, 0, 0, 143, 786, 0, 0, 0, 0, 169, 806, 0, 0, 0, 0, 230, 816, 0, 0, 0, 0, 315, 814, 0, 0, 0, 0, 483, 816, 0, 0, 0, 0, 675, 816, 0, 0, 0, 0, 741, 808, 0, 0, 0, 0, 770, 786, 0, 0, 0, 0, 779, 766, 0, 0, 0, 0, 785, 737, 0, 0, 0, 0, 789, 687, 0, 0, 0, 0, 787, 618, 0, 0, 0, 0, 758, 584, 0, 0, 0, 0, 722, 574, 0, 0, 0, 0, 679, 571, 0, 0, 0, 0, 623, 571, 0, 0, 0, 0, 589, 559, 0, 0, 0, 0, 576, 539, 0, 0, 0, 0, 572, 496, 0, 0, 0, 0, 578, 419, 0, 0, 0, 0, 591, 381, 0, 0, 0, 0, 623, 365, 0, 0, 0, 0, 652, 364, 0, 0, 0, 0, 696, 364, 0, 0, 0, 0, 753, 354, 0, 0, 0, 0, 777, 334, 0, 0, 0, 0, 793, 287, 0, 0, 0, 0, 795, 240, 0, 0, 0, 0, 792, 192, 0, 0, 0, 0, 772, 153, 0, 0, 0, 0, 725, 137, 0, 0, 0, 0, 658, 135, 0, 0, 0, 0, 593, 131, 0, 0, 0, 0, 535, 119, 0, 0, 0, 0, 509, 93, 0, 0, 0, 0, 496, 56, 0, 0, 0, 0, 495, -15)
+"points": PackedVector2Array(0, 0, 0, 0, 26.4, 437.2, 0, 0, 0, 0, 165.4, 425.2, 0, 0, 0, 0, 199.4, 386.2, 0, 0, 0, 0, 211.4, 250.2, 0, 0, 0, 0, 242.4, 222.2, 0, 0, 0, 0, 371.4, 220.2, 0, 0, 0, 0, 399.4, 251.2, 0, 0, 0, 0, 401.4, 627.2, 0, 0, 0, 0, 365.4, 651.2, 0, 0, 0, 0, 174.4, 665.2, 0, 0, 0, 0, 141.4, 691.2, 0, 0, 0, 0, 136.4, 777.2, 0, 0, 0, 0, 169.4, 805.2, 0, 0, 0, 0, 748.4, 802.2, 0, 0, 0, 0, 784.4, 759.2, 0, 0, 0, 0, 785.4, 610.2, 0, 0, 0, 0, 742.4, 573.2, 0, 0, 0, 0, 601.4, 563.2, 0, 0, 0, 0, 573.4, 526.2, 0, 0, 0, 0, 579.4, 392.2, 0, 0, 0, 0, 628.4, 367.2, 0, 0, 0, 0, 741.4, 357.2, 0, 0, 0, 0, 781.4, 319.2, 0, 0, 0, 0, 788.4, 173.2, 0, 0, 0, 0, 736.4, 139.2, 0, 0, 0, 0, 544.4, 129.2, 0, 0, 0, 0, 508.4, 93.2, 0, 0, 0, 0, 497.4, 45.2)
 }
-point_count = 61
+point_count = 28
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
 size = Vector2(298, 868)
@@ -49,6 +51,9 @@ script = ExtResource("4_t5ptc")
 position = Vector2(-29.4, -49.2)
 curve = SubResource("Curve2D_sl2e5")
 script = ExtResource("3_1fp7r")
+
+[node name="MissileParticles" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="PathCollider" type="StaticBody2D" parent="."]
 
@@ -107,6 +112,31 @@ script = ExtResource("7_j2gmx")
 [node name="BalloonPop19" parent="BalloonPopsPool" instance=ExtResource("8_1yooq")]
 
 [node name="BalloonPop20" parent="BalloonPopsPool" instance=ExtResource("8_1yooq")]
+
+[node name="MissileParticlesPool" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("9_1yooq")
+
+[node name="MissileParticles" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles2" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles3" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles4" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles5" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles6" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles7" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles8" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles9" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
+
+[node name="MissileParticles10" parent="MissileParticlesPool" instance=ExtResource("10_gb53w")]
 
 [node name="SpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true

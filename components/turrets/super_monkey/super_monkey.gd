@@ -5,7 +5,9 @@ static var this_scene : String = "uid://ul65opl34wt8"
 static var this_resource : String = "uid://cmvn68axxmm4"
 
 @onready var sprites: Node2D = %Sprites
-@onready var hand: Sprite2D = %Hand
+@onready var hands: Node2D = %Hands
+
+var animation_counter : int = 0
 
 
 static func create_this() -> Turret :
@@ -43,9 +45,14 @@ func fire(target : Balloon) -> void :
 
 
 func fire_animation() -> void : 
+	var hand : Sprite2D = hands.get_child(animation_counter)
+	
 	var tween : Tween = create_tween()
-	tween.tween_property(hand, "position:x", 24, 0.1)
-	tween.tween_property(hand, "position:x", 0, 0.1)
+	tween.tween_property(hand, "position:x", 24.0, 0.1).from(0.0)
+	tween.tween_property(hand, "position:x", 0.0, 0.1)
+	
+	animation_counter += 1
+	if animation_counter == 4 : animation_counter = 0
 
 
 func get_first_upgrade() -> RUpgrade : 
@@ -59,7 +66,7 @@ func apply_first_upgrade() -> void :
 
 
 func get_second_upgrade() -> RUpgrade: 
-	return RUpgrade.upgrades[RUpgrade.List.FROZEN_RANGE]
+	return RUpgrade.upgrades[RUpgrade.List.SUPERMONKEY_RANGE]
 
 
 func apply_second_upgrade() -> void : 
