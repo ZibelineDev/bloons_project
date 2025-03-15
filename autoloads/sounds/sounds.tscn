@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://e7uu54odx5ac"]
+[gd_scene load_steps=18 format=3 uid="uid://e7uu54odx5ac"]
 
 [ext_resource type="AudioStream" uid="uid://dkkpjtr2q2uo6" path="res://assets/sounds/pew_1.wav" id="1_hbubl"]
 [ext_resource type="Script" uid="uid://bw2mi81lnvopl" path="res://autoloads/sounds/sounds.gd" id="1_mg7lp"]
@@ -9,6 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://bkoxbiu5rjhr" path="res://assets/sounds/bonk_2.wav" id="7_1sw71"]
 [ext_resource type="AudioStream" uid="uid://dyxgdofv4giuf" path="res://assets/sounds/bonk_3.wav" id="8_lw50h"]
 [ext_resource type="AudioStream" uid="uid://c1ubmeajxyw26" path="res://assets/sounds/pop.wav" id="9_0k2vw"]
+[ext_resource type="AudioStream" uid="uid://cftlgvelqixcf" path="res://assets/sounds/ice/frost_magic_sound(2).mp3" id="10_o0hdi"]
+[ext_resource type="AudioStream" uid="uid://cjwrq48v3aeu4" path="res://assets/sounds/ice/frost_magic_sound(4).mp3" id="12_ia5s2"]
+[ext_resource type="AudioStream" uid="uid://b3wvpeq4kbyfp" path="res://assets/sounds/missile/rocket_explosion.wav" id="12_o0hdi"]
+[ext_resource type="AudioStream" uid="uid://b4cdh75uyifb1" path="res://assets/sounds/ui/switch_005.ogg" id="13_jhovl"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_epcmc"]
 streams_count = 4
@@ -22,6 +26,15 @@ streams_count = 3
 stream_0/stream = ExtResource("6_epcmc")
 stream_1/stream = ExtResource("7_1sw71")
 stream_2/stream = ExtResource("8_lw50h")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t3a5w"]
+streams_count = 2
+stream_0/stream = ExtResource("10_o0hdi")
+stream_1/stream = ExtResource("12_ia5s2")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jhovl"]
+streams_count = 1
+stream_0/stream = ExtResource("12_o0hdi")
 
 [node name="Sounds" type="Node"]
 script = ExtResource("1_mg7lp")
@@ -39,3 +52,15 @@ max_polyphony = 25
 [node name="Pop" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("9_0k2vw")
+
+[node name="IceTower" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_t3a5w")
+
+[node name="MissileTower" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_jhovl")
+
+[node name="UI" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_jhovl")

@@ -123,6 +123,7 @@ func place() -> void :
 	(%TurretCollision as CollisionShape2D).disabled = false
 	(%BodyArea as Area2D).monitoring = false
 	move_and_slide()
+	(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CLICK)
 
 
 func scan_for_balloons() -> void : 
@@ -153,6 +154,7 @@ func try_to_purchase_first_upgrade() -> void :
 		resource.first_upgrade_purchased = true
 		apply_first_upgrade()
 		UserInterface.ref.upgrade_purchased.emit()
+		(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CLICK)
 
 
 func apply_first_upgrade() -> void : 
@@ -170,6 +172,7 @@ func try_to_purchase_second_upgrade() -> void :
 		resource.second_upgrade_purchased = true
 		apply_second_upgrade()
 		UserInterface.ref.upgrade_purchased.emit()
+		(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CLICK)
 
 
 func apply_second_upgrade() -> void : 
@@ -180,3 +183,4 @@ func sell() -> void :
 	(Currency as ACurrency).refund_currency(int(value * 0.66))
 	deselect_current_turret()
 	queue_free()
+	(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CLICK)

@@ -1,0 +1,5 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://criproiw2nlw8"]
+
+[resource]
+font_size = 32
+outline_size = 2

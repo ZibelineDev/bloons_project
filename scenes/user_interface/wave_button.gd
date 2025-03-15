@@ -5,12 +5,8 @@ func _ready() -> void :
 	pressed.connect(on_pressed)
 
 
-func on_wave_intited() -> void : 
-	disabled = true
-
-
-func on_wave_completed() -> void : 
-	disabled = false
+func _input(event : InputEvent) -> void :
+	if event.is_action_pressed("space") : on_pressed()
 
 
 func on_pressed() -> void : 

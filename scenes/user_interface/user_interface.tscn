@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=21 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://dj578mtugchn3" path="res://scenes/purchase_info/purchase_info.tscn" id="10_tfswy"]
 [ext_resource type="Script" uid="uid://w4queq5ektlr" path="res://scenes/user_interface/game_over.gd" id="13_01bs6"]
 [ext_resource type="Script" uid="uid://2ipm4qbn6mfw" path="res://scenes/user_interface/button.gd" id="14_dvuog"]
+[ext_resource type="LabelSettings" uid="uid://criproiw2nlw8" path="res://assets/styles/header.tres" id="15_2eyu3"]
+[ext_resource type="Script" uid="uid://cbhb4g5e5vyp8" path="res://scenes/user_interface/escape_menu.gd" id="15_hs8v3"]
+[ext_resource type="Script" uid="uid://c6js4hep1sej4" path="res://scenes/user_interface/volume_slider.gd" id="16_hs8v3"]
+[ext_resource type="Script" uid="uid://bdv2oxe4acun1" path="res://scenes/user_interface/check_box.gd" id="19_nxml3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
 
@@ -436,3 +440,86 @@ size_flags_vertical = 4
 focus_mode = 0
 text = "Try Again"
 script = ExtResource("14_dvuog")
+
+[node name="EscapeMenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_hs8v3")
+
+[node name="CenterContainer" type="CenterContainer" parent="EscapeMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="EscapeMenu/CenterContainer"]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pvt6f")
+
+[node name="MarginContainer" type="MarginContainer" parent="EscapeMenu/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Menu"
+label_settings = ExtResource("15_2eyu3")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Sound Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("16_hs8v3")
+
+[node name="Label2" type="Label" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Super Secret Setting"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="TextureButton" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 4
+script = ExtResource("19_nxml3")

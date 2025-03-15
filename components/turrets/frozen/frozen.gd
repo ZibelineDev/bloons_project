@@ -34,6 +34,7 @@ func fire(_target : Balloon) -> void :
 		balloon_area.balloon.freeze(duration)
 	gpu_particles_2d.emitting = true
 	area_animation.play()
+	(Sounds as ASounds).play_ice_tower()
 
 
 func update_range() -> void : 

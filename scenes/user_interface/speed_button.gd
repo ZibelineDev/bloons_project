@@ -18,3 +18,4 @@ func _ready() -> void :
 
 func on_pressed() -> void : 
 	(SpeedScale as ASpeedScale).toggle()
+	(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CLICK)

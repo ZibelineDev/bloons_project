@@ -1,4 +1,7 @@
-extends Panel
+class_name GameOver extends Panel
+
+
+static var is_over : bool = false
 
 
 func _ready() -> void :
@@ -8,4 +11,5 @@ func _ready() -> void :
 	Game.ref.game_over.connect(
 		func() -> void : 
 			visible = true
+			is_over = true
 	)

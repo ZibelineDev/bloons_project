@@ -61,6 +61,15 @@ var waves : Array[String] = [
 	"uid://ce4edu4r7sai6",
 	"uid://y037krecqdgb", #40
 	"uid://d2yiebwn4sd7m",
+	"uid://dpxheevie4awb",
+	"uid://cpa6b2oepb2eb",
+	"uid://cx6f1tfi4gug1",
+	"uid://bq0n8mnb7878p", #45
+	"uid://ursjieyheokm", 
+	"uid://cm0fxylldsgqw",
+	"uid://cbv2sjgr2x1tr",
+	"uid://c0je0n4w4d1p3",
+	"uid://bpna4we5vs83d", #50
 ]
 
 
@@ -92,6 +101,7 @@ func initiate_wave() -> void :
 	wave_resource = load(waves[completed_waves])
 	spawn_timer.wait_time = wave_resource.spawn_interval
 	spawn_timer.start()
+	(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CONFIRMATION)
 
 
 func close_wave() -> void : 

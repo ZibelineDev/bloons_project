@@ -1,5 +1,9 @@
 class_name Turrets2D extends Node2D
 
+static var ref : Turrets2D
+
+func _init() -> void : ref = self
+
 
 var ghost_turret : Turret = null
 
@@ -25,6 +29,7 @@ func create_ghost_turret(type : Turret.Types) -> void :
 	if ghost_turret : return
 	ghost_turret = Turret.create_ghost(type)
 	add_child(ghost_turret)
+	(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CLICK)
 
 
 func try_to_place() -> void : 
