@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://djni8h5y2kltb"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_la4qr"]
+
+[resource]
+script = ExtResource("1_la4qr")
+key = 6
+name = "Minor Chain"
+texture_path = "uid://4kqklj1t5xb7"
+description = "Darts will sometimes Chain."
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

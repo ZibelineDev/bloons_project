@@ -4,6 +4,9 @@ class_name Balloon extends PathFollow2D
 static var scene : PackedScene = load("uid://7tgh7f8vdhwo")
 
 
+static var greed_proc_rate : float = 0.1
+static var greed_magnitude : int = 0
+
 var speed : float = 75.0
 var level : int = 0
 
@@ -23,6 +26,13 @@ func _ready() -> void :
 	update()
 	initialise_tweens()
 	frozen_effect.modulate.a = 0.0
+	
+	if SSS.activated : 
+		Augments.augment_purchased.connect(
+			func(augment : RAugment) -> void : 
+				if augment.key == RAugment.Types.GREED :
+					greed_magnitude += 1
+		)
 
 
 static func create(_level : int = 0) -> Balloon : 
@@ -112,6 +122,12 @@ func pop(dart_damage : bool = true) -> void :
 	
 	(Sounds as ASounds).play_pop()
 	(Currency as ACurrency).create_currency(1)
+	
+	if greed_magnitude >= 1 :
+		var roll : float = randf()
+		if roll <= greed_proc_rate :
+			print_rich("[color=ff18a6]Greeded 1 Money[/color]")
+			(Currency as ACurrency).create_currency(1)
 	
 	if level == 4 : 
 		level = 3

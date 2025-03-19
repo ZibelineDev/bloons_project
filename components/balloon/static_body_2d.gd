@@ -9,5 +9,4 @@ func get_progress_ratio() -> float :
 
 
 func hit() -> void : 
-	print("Balloon popped")
 	balloon.pop()

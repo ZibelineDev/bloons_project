@@ -15,6 +15,7 @@ var cheated : bool = false
 
 func initialise() -> void :
 	currency = 650
+	cheated = false
 	
 	currency_updated.emit(currency)
 

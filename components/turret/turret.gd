@@ -22,6 +22,8 @@ static var turrets : Dictionary[Turret.Types, RTurret] = {
 static var scene : String = "uid://dv7ks0wr8gaga"
 static var selected_turret : Turret = null
 
+static var range_boost : float = 0.0
+
 
 var ghosted : bool = true
 var selected : bool = false
@@ -39,6 +41,11 @@ func _ready() -> void :
 	range_indicator.visible = true
 	(%TurretCollision as CollisionShape2D).disabled = true
 	(%Button as Button).pressed.connect(on_pressed)
+	
+	if SSS.activated : 
+		initialise_augments()
+		
+		Augments.augment_purchased.connect(on_augment_purchased)
 
 
 func _input(event : InputEvent) -> void :
@@ -46,6 +53,9 @@ func _input(event : InputEvent) -> void :
 
 
 func _physics_process(delta : float) -> void :
+	if resource.cooldown < 0.02 : 
+		resource.cooldown = 0.02
+	
 	if ghosted :
 		if is_colliding() : 
 			range_indicator.modulate = Color.RED
@@ -74,6 +84,8 @@ func select() -> void :
 	selected_turret = self
 	TurretInfo.ref.select(self)
 	range_indicator.visible = true
+	print("range : %0.1f" %resource.turret_range)
+	print("cooldown : %0.2f" %resource.cooldown)
 
 
 func deselect() -> void : 
@@ -184,3 +196,26 @@ func sell() -> void :
 	deselect_current_turret()
 	queue_free()
 	(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CLICK)
+
+
+func initialise_augments() -> void : 
+	var minor_range_magnitude : int = Augments.get_augment(load(RAugment.dictionary[RAugment.Types.MINOR_RANGE]))
+	if minor_range_magnitude > 0 : 
+		resource.turret_range += 15.0 * minor_range_magnitude
+		update_range()
+	
+	if resource.type == Turret.Types.DART or resource.type == Turret.Types.TACK or resource.type == Turret.Types.HYPERSONIC :
+		var dart_attack_speed_augment : RAugment = load(RAugment.dictionary[RAugment.Types.DART_ATTACK_SPEED])
+		var dart_attack_speed_magnitude : int = Augments.get_augment(dart_attack_speed_augment)
+		
+		resource.cooldown -= ( 0.05 * dart_attack_speed_magnitude ) 
+
+
+func on_augment_purchased(augment : RAugment) -> void : 
+	if augment.key == RAugment.Types.MINOR_RANGE : 
+		resource.turret_range += 15.0
+		update_range()
+	
+	if augment.key == RAugment.Types.DART_ATTACK_SPEED : 
+		if resource.type == Turret.Types.DART or resource.type == Turret.Types.TACK or resource.type == Turret.Types.HYPERSONIC : 
+			resource.cooldown -= 0.05

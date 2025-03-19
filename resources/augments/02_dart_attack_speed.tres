@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://blc8j7ky0ll3h"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_8ihkr"]
+
+[resource]
+script = ExtResource("1_8ihkr")
+key = 3
+name = "Dart Speed"
+texture_path = "uid://bdamm616liuhm"
+description = "Increase Attack Speed of Dart Towers."
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

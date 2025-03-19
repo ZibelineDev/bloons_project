@@ -21,6 +21,8 @@ Sounds="*res://autoloads/sounds/sounds.tscn"
 Currency="*res://autoloads/currency/currency.gd"
 Stats="*res://autoloads/stats/stats.gd"
 SpeedScale="*res://autoloads/speed_scale/speed_scale.gd"
+SSS="*res://autoloads/sss/sss.gd"
+Augments="*res://autoloads/augments/augments.gd"
 
 [debug]
 

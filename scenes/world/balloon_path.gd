@@ -115,6 +115,9 @@ func close_wave() -> void :
 	UserInterface.ref.create_feedback(feedback)
 	completed_waves += 1
 	wave_completed.emit(completed_waves)
+	
+	if completed_waves == 3 :
+		AugmentCardChoice.ref.initialise_choice()
 
 
 func on_spawn_timer_timeout() -> void : 

@@ -7,3 +7,5 @@ func _ready() -> void :
 			AudioServer.set_bus_volume_linear(0, new_value)
 	)
 	
+	value = AudioServer.get_bus_volume_linear(0)
+	

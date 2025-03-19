@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://b4ljwy17ufc6m"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_c6k5n"]
+
+[resource]
+script = ExtResource("1_c6k5n")
+key = 5
+name = "Piercing"
+texture_path = "uid://v8saxy76vqdg"
+description = "Darts will sometimes Pierce."
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

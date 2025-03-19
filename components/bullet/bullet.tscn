@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqnn853pecay3"]
+[gd_scene load_steps=5 format=3 uid="uid://dqnn853pecay3"]
 
 [ext_resource type="Script" uid="uid://cg5fh56r2uv4f" path="res://components/bullet/bullet.gd" id="1_142lv"]
 [ext_resource type="Texture2D" uid="uid://c4uinpek1xjbc" path="res://assets/textures/dart_03.png" id="2_j7bu3"]
@@ -7,16 +7,32 @@
 radius = 2.0
 height = 38.0
 
-[node name="Bullet" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7bu3"]
+radius = 75.0
+
+[node name="Bullet" type="Node2D" node_paths=PackedStringArray("hitbox", "collision_shape_2d", "sprite2d", "chain_area")]
+script = ExtResource("1_142lv")
+hitbox = NodePath("HitBox")
+collision_shape_2d = NodePath("HitBox/CollisionShape2D")
+sprite2d = NodePath("HitBox/Sprite2D")
+chain_area = NodePath("ChainArea")
+
+[node name="HitBox" type="Area2D" parent="."]
 z_index = 2
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_142lv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="HitBox"]
 texture_filter = 1
 texture = ExtResource("2_j7bu3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_j7bu3")
+
+[node name="ChainArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainArea"]
+shape = SubResource("CircleShape2D_j7bu3")

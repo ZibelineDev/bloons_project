@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=23 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -13,10 +13,12 @@
 [ext_resource type="StyleBox" uid="uid://50gbrgft46ck" path="res://assets/styles/shop_icon_panel.tres" id="9_dvuog"]
 [ext_resource type="PackedScene" uid="uid://dj578mtugchn3" path="res://scenes/purchase_info/purchase_info.tscn" id="10_tfswy"]
 [ext_resource type="Script" uid="uid://w4queq5ektlr" path="res://scenes/user_interface/game_over.gd" id="13_01bs6"]
+[ext_resource type="PackedScene" uid="uid://dtjqbmoihy0gj" path="res://components/augment_card_choice/augment_card_choice.tscn" id="13_nxml3"]
 [ext_resource type="Script" uid="uid://2ipm4qbn6mfw" path="res://scenes/user_interface/button.gd" id="14_dvuog"]
 [ext_resource type="LabelSettings" uid="uid://criproiw2nlw8" path="res://assets/styles/header.tres" id="15_2eyu3"]
 [ext_resource type="Script" uid="uid://cbhb4g5e5vyp8" path="res://scenes/user_interface/escape_menu.gd" id="15_hs8v3"]
 [ext_resource type="Script" uid="uid://c6js4hep1sej4" path="res://scenes/user_interface/volume_slider.gd" id="16_hs8v3"]
+[ext_resource type="Script" uid="uid://cxyt0hdm0kxxu" path="res://scenes/user_interface/sss_confirmation.gd" id="19_gup0q"]
 [ext_resource type="Script" uid="uid://bdv2oxe4acun1" path="res://scenes/user_interface/check_box.gd" id="19_nxml3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
@@ -406,6 +408,10 @@ focus_mode = 0
 text = "Start Wave"
 script = ExtResource("4_2dtu1")
 
+[node name="AugmentCardChoice" parent="." instance=ExtResource("13_nxml3")]
+visible = false
+layout_mode = 1
+
 [node name="GameOver" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -442,6 +448,7 @@ text = "Try Again"
 script = ExtResource("14_dvuog")
 
 [node name="EscapeMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -517,9 +524,84 @@ text = "Super Secret Setting"
 horizontal_alignment = 1
 
 [node name="CheckBox" type="TextureButton" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 stretch_mode = 4
 script = ExtResource("19_nxml3")
+
+[node name="SSSConfirmation" type="Panel" parent="EscapeMenu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_gup0q")
+
+[node name="CenterContainer" type="CenterContainer" parent="EscapeMenu/SSSConfirmation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="EscapeMenu/SSSConfirmation/CenterContainer"]
+custom_minimum_size = Vector2(568, 288)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pvt6f")
+
+[node name="MarginContainer" type="MarginContainer" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Super Secret Setting"
+label_settings = ExtResource("15_2eyu3")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HSeparator" type="HSeparator" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Body" type="Label" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "You're about to turn the Super Secret Setting on. This will Restart the game. Are your sure ?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Confirm" type="Button" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+text = "Confirm"
+
+[node name="Cancel" type="Button" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Cancel"

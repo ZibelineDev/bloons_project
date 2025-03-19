@@ -1,4 +1,4 @@
-extends TextureButton
+class_name SSSCheckBox extends TextureButton
 
 
 var texture_unchecked : Texture2D = load("uid://cx1fcg3q0khwh")
@@ -8,7 +8,10 @@ var checked : bool = false
 
 
 func _ready() -> void :
-	uncheck()
+	if SSS.activated : 
+		check()
+	else : 
+		uncheck()
 	
 	pressed.connect(
 		func() -> void :

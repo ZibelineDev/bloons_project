@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://e27agvnn820r"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_wfqan"]
+
+[resource]
+script = ExtResource("1_wfqan")
+key = 1
+name = "Greed"
+texture_path = "uid://bxytlhnk3vdu4"
+description = "Get more money when popping balloons."
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://dunsusjdki3yc"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_r4imi"]
+
+[resource]
+script = ExtResource("1_r4imi")
+key = 2
+name = "Minor Range"
+texture_path = "uid://bcxv5k8woabuu"
+description = "Small range boost for all Units."
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

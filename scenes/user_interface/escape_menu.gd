@@ -4,6 +4,11 @@ class_name EscapeMenu extends Panel
 static var is_open : bool = false 
 
 
+@onready var check_box : SSSCheckBox = %CheckBox
+@onready var sss_confirmation : SSSConfirmationPanel = %SSSConfirmation
+
+
+
 func _ready() -> void :
 	visible = false
 	is_open = false
@@ -30,7 +35,20 @@ func open_menu() -> void :
 
 
 func close_menu() -> void :
-	visible = false
-	is_open = false
-	(SpeedScale as ASpeedScale).toggle_pause(false)
+	if sss_matches() :
+		visible = false
+		is_open = false
+		(SpeedScale as ASpeedScale).toggle_pause(false)
 	
+	else : 
+		sss_confirmation.visible = true
+
+
+func sss_matches() -> bool : 
+	if SSS.activated and check_box.checked : 
+		return true
+	
+	if not SSS.activated and not check_box.checked : 
+		return true
+	
+	return false
