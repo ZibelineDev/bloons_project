@@ -40,6 +40,7 @@ bus = &"SFX"
 [node name="Bonk" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_dhktp")
+max_polyphony = 100
 bus = &"SFX"
 
 [node name="Pop" type="AudioStreamPlayer" parent="."]

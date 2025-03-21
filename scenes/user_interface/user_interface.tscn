@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=29 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://cxyt0hdm0kxxu" path="res://scenes/user_interface/sss_confirmation.gd" id="19_gup0q"]
 [ext_resource type="Script" uid="uid://bdv2oxe4acun1" path="res://scenes/user_interface/check_box.gd" id="19_nxml3"]
 [ext_resource type="Script" uid="uid://c5a4vfcaws87v" path="res://scenes/user_interface/victory.gd" id="19_t2esm"]
+[ext_resource type="Script" uid="uid://cuvdncjdtn817" path="res://scenes/user_interface/header.gd" id="20_54aa8"]
 [ext_resource type="Script" uid="uid://qfah005m8k2t" path="res://scenes/user_interface/ui_slider.gd" id="21_46hr8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
@@ -502,7 +503,6 @@ flat = true
 script = ExtResource("14_dvuog")
 
 [node name="Victory" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -536,6 +536,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Victory !"
 horizontal_alignment = 1
+script = ExtResource("20_54aa8")
 
 [node name="MarginContainer" type="MarginContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2

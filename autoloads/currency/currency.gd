@@ -10,12 +10,12 @@ signal currency_updated(new_value : int)
 var currency : int
 var cheat_progress : int = 0
 var cheat_interval : float = 0.0
-var cheated : bool = false
+var cheated : bool = true
 
 
 func initialise() -> void :
 	currency = 650
-	cheated = false
+	cheated = true
 	
 	currency_updated.emit(currency)
 

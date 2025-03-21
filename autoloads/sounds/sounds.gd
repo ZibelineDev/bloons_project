@@ -8,6 +8,7 @@ enum UISounds {
 	CONFIRMATION,
 	AUGMENT_CHOICE,
 	AUGMENT_PICK,
+	VICTORY,
 }
 
 
@@ -55,5 +56,6 @@ func play_ui_sound(ui_sound : UISounds) -> void :
 		UISounds.CONFIRMATION : ui.stream = preload("uid://dpfcyf20r6b88")
 		UISounds.AUGMENT_CHOICE : ui.stream = preload("uid://x1otfldj7ivf")
 		UISounds.AUGMENT_PICK : ui.stream = preload("uid://cs4frf1sarflb")
+		UISounds.VICTORY : ui.stream = preload("uid://cs4frf1sarflb")
 	
 	ui.play()

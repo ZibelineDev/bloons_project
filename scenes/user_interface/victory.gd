@@ -10,6 +10,7 @@ func _ready() -> void :
 	Game.ref.game_over.connect(
 		func(just_won : bool) -> void : 
 			if just_won : 
+				Sounds.play_ui_sound(Sounds.UISounds.VICTORY)
 				visible = true
 				is_over = true
 	)
