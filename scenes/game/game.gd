@@ -4,7 +4,7 @@ class_name Game extends Node
 static var ref : Game
 
 
-signal game_over
+signal game_over(just_won : bool)
 
 
 @onready var world: World = %World
@@ -37,8 +37,8 @@ func lose_life(quantity : int = 1) -> void :
 		game_over_func()
 
 
-func game_over_func() -> void : 
-	game_over.emit()
+func game_over_func(just_won : bool = false) -> void : 
+	game_over.emit(just_won)
 	Engine.time_scale = 0.0
 
 

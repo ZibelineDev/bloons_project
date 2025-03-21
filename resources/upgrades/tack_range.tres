@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RUpgrade" load_steps=3 format=3 uid="uid://duvdt0gxlpkjn"]
 
 [ext_resource type="Script" uid="uid://diqh2nbmyf8tr" path="res://resources/upgrades/upgrade.gd" id="1_dy5ir"]
-[ext_resource type="Texture2D" uid="uid://d18jwonhrh0x1" path="res://assets/textures/upgrades/tack_range.svg" id="2_dy5ir"]
+[ext_resource type="Texture2D" uid="uid://c5uhtr2rkggcu" path="res://assets/textures/upgrades/tack_range.png" id="2_dy5ir"]
 
 [resource]
 script = ExtResource("1_dy5ir")

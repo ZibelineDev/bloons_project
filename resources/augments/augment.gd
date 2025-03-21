@@ -9,6 +9,11 @@ enum Types {
 	BIGGER_DARTS,
 	PIERCING_DARTS,
 	MINOR_CHAIN,
+	MINOR_FROST,
+	GUARANTEED_SHOT,
+	MED_PACK,
+	MONEY,
+	
 }
 
 
@@ -19,6 +24,10 @@ static var dictionary : Dictionary[Types, String] = {
 	Types.BIGGER_DARTS : "uid://d0uywkfut6rhy",
 	Types.PIERCING_DARTS : "uid://b4ljwy17ufc6m",
 	Types.MINOR_CHAIN : "uid://djni8h5y2kltb",
+	Types.MINOR_FROST : "uid://m6k8gpobd0ps",
+	Types.GUARANTEED_SHOT : "uid://mu8m2e13qmg7", 
+	Types.MED_PACK : "uid://bjde1k0cwn6h",
+	Types.MONEY : "uid://cgmmagi67d46q",
 }
 
 

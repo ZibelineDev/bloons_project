@@ -9,7 +9,8 @@ func _ready() -> void :
 	visible = false
 	
 	Game.ref.game_over.connect(
-		func() -> void : 
-			visible = true
-			is_over = true
+		func(just_won : bool) -> void : 
+			if not just_won : 
+				visible = true
+				is_over = true
 	)

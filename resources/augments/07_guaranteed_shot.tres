@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://mu8m2e13qmg7"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_3ts6d"]
+
+[resource]
+script = ExtResource("1_3ts6d")
+key = 8
+name = "Snipe"
+texture_path = "uid://qt4tolo1geln"
+description = "Some shots will not miss."
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

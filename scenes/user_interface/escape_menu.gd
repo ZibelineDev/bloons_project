@@ -6,12 +6,25 @@ static var is_open : bool = false
 
 @onready var check_box : SSSCheckBox = %CheckBox
 @onready var sss_confirmation : SSSConfirmationPanel = %SSSConfirmation
-
+@onready var menu_button: TextureButton = %MenuButton
+@onready var confirm_button: Button = %ConfirmButton
 
 
 func _ready() -> void :
 	visible = false
 	is_open = false
+	
+	menu_button.pressed.connect(
+		func() -> void : 
+			open_menu()
+			(Sounds as ASounds).play_ui_sound(ASounds.UISounds.BONG)
+	)
+	
+	confirm_button.pressed.connect(
+		func() -> void : 
+			close_menu()
+			(Sounds as ASounds).play_ui_sound(ASounds.UISounds.BONG)
+	)
 
 
 func _input(event : InputEvent) -> void :

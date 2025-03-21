@@ -19,6 +19,10 @@ var spawn_completed : bool
 @onready var spawn_timer: Timer = %SpawnTimer
 
 
+var augment_waves : Array[int] = [
+	4, 8, 12, 16, 20, 24, 28, 32, 36, 40 , 44, 48
+]
+
 var waves : Array[String] = [
 	"uid://cvurd1in1rif5", #1
 	"uid://c73bse16djgvv",
@@ -106,6 +110,11 @@ func initiate_wave() -> void :
 
 func close_wave() -> void : 
 	if not wave_active : return
+	if completed_waves == 49 : 
+		completed_waves += 1
+		wave_completed.emit(completed_waves)
+		Game.ref.game_over_func(true)
+		return
 	
 	wave_active = false
 	(Currency as ACurrency).create_currency(100 - completed_waves)
@@ -116,7 +125,7 @@ func close_wave() -> void :
 	completed_waves += 1
 	wave_completed.emit(completed_waves)
 	
-	if completed_waves == 3 :
+	if augment_waves.has(completed_waves) :
 		AugmentCardChoice.ref.initialise_choice()
 
 

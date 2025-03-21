@@ -6,6 +6,6 @@
 script = ExtResource("1_wfqan")
 key = 1
 name = "Greed"
-texture_path = "uid://bxytlhnk3vdu4"
+texture_path = "uid://cviqini6y8m4r"
 description = "Get more money when popping balloons."
 metadata/_custom_type_script = "uid://kpxaghg2tf2y"

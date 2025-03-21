@@ -17,6 +17,8 @@ var freeze_out : Tween
 var freeze_count : int = 0
 var freeze_protection : float = 0.0
 
+var slow_magnitude : float = 0.0
+
 
 @onready var base: Sprite2D = %Base
 @onready var frozen_effect: Sprite2D = %FrozenEffect
@@ -51,6 +53,7 @@ func _physics_process(delta : float) -> void :
 			freeze_out.play()
 			if freeze_count >= 3 : 
 				freeze_protection = 2.5
+				freeze_count = 0
 		return
 	
 	if freeze_protection > 0.0 : 
@@ -80,12 +83,18 @@ func update() -> void :
 	update_speed()
 
 
-func freeze(duration : float) -> void :
+func freeze(duration : float, slow : float = 0.0) -> void :
+	if frozen : return
 	if not level == 5 and freeze_protection <= 0.0 : 
 		frozen = true
 		frozen_progress = duration
 		freeze_in.play()
 		freeze_count += 1 
+		
+		if slow != 0.0 : 
+			slow_magnitude += slow
+			update_speed()
+		
 
 
 func update_scale() -> void :
@@ -112,6 +121,9 @@ func update_speed() -> void  :
 		3 : speed = 300.0
 		4 : speed = 250.0
 		5 : speed = 325.0
+	
+	speed -= slow_magnitude
+	if speed < 25.0 : speed = 25.0 
 
 
 func pop(dart_damage : bool = true) -> void : 

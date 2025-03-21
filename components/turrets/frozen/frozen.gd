@@ -10,6 +10,9 @@ static var this_resource : String = "uid://bah20vq8ns2mr"
 var duration : float = 1.2
 var area_animation : Tween
 
+static var minor_frost_magnitude : float = 0.0
+static var minor_frost_augment : RAugment = load("uid://m6k8gpobd0ps")
+
 
 func _ready() -> void :
 	super()
@@ -19,6 +22,15 @@ func _ready() -> void :
 	area_animation.finished.connect(func() -> void : area_animation.stop())
 	area_animation.stop()
 	(%TextureIndicator as TextureRect).modulate.a = 0.0
+	
+	update_augments(minor_frost_augment)
+	if not Augments.augment_purchased.is_connected(update_augments) : 
+		Augments.augment_purchased.connect(update_augments)
+
+
+static func update_augments(augment : RAugment ) -> void : 
+	if augment == minor_frost_augment :
+		minor_frost_magnitude = Augments.get_augment(minor_frost_augment)
 
 
 static func create_this() -> Turret :
@@ -31,7 +43,7 @@ static func create_this() -> Turret :
 func fire(_target : Balloon) -> void :
 	var balloons : Array[Area2D] = (%RangeArea as Area2D).get_overlapping_areas()
 	for balloon_area : BalloonArea2D in balloons : 
-		balloon_area.balloon.freeze(duration)
+		balloon_area.balloon.freeze(duration, minor_frost_magnitude * 10.0)
 	gpu_particles_2d.emitting = true
 	area_animation.play()
 	(Sounds as ASounds).play_ice_tower()

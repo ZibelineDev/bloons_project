@@ -58,6 +58,7 @@ script = ExtResource("2_bjooh")
 unique_name_in_owner = true
 offset_right = 64.0
 offset_bottom = 64.0
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_i3lg4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="1"]
@@ -85,6 +86,7 @@ shape = SubResource("CircleShape2D_77y08")
 shape = SubResource("CircleShape2D_i3lg4")
 
 [node name="Button" parent="." index="7"]
+z_index = 2
 offset_left = -28.0
 offset_top = -26.0
 offset_right = 25.0

@@ -39,6 +39,7 @@ func toggle_pause(new_pause_toggled : bool) -> void :
 		Engine.time_scale = 0.0
 	else : 
 		if GameOver.is_over : return
+		if VictoryPanel.is_over : return
 		if toggled : Engine.time_scale = 4.0
 		else : Engine.time_scale = 1.0
 	

@@ -18,8 +18,12 @@ var bullet_range : float = 75.0
 var pierce : int = 0
 var chain : int = 0
 var speed : float = 1000.0
+var snipe : Balloon = null
+var will_snipe : bool = false
 
 var lifespan : float = 1.0
+
+static var guaranteed_shot_magnitude : int = 0
 
 
 func _ready() -> void :
@@ -28,13 +32,25 @@ func _ready() -> void :
 	fire_alpha_tween()
 
 
-static func create(_direction : Vector2, _range : float, _pierce : int = 0, _speed : float = 1000.0) -> Bullet : 
+static func create(_direction : Vector2, _range : float, _pierce : int = 0, _speed : float = 1000.0, _snipe : Balloon = null) -> Bullet : 
 	var bullet : Bullet = (preload(SCENE) as PackedScene).instantiate()
 	bullet.direction = _direction
 	bullet.bullet_range = _range
 	bullet.pierce = _pierce
 	bullet.speed = _speed 
+	bullet.snipe = _snipe
+	
+	if guaranteed_shot_magnitude > 0 : 
+		var roll : int = randi_range(0, 99)
+		if roll < 50 : 
+			bullet.will_snipe = true
+	
 	return bullet
+
+
+func _exit_tree() -> void :
+	if snipe and will_snipe : 
+		snipe.pop()
 
 
 func _physics_process(delta : float) -> void :
@@ -58,6 +74,8 @@ func scan_for_balloon() -> void :
 	
 	if _target : 
 		_target.hit()
+		if _target.balloon == snipe : 
+			snipe = null
 		
 		var chained : bool = try_to_chain()
 		if chained : 
@@ -65,8 +83,8 @@ func scan_for_balloon() -> void :
 			if scan_for_chaining(_target.balloon) : return
 			#Else we queue free
 			else : 
-				return 
 				queue_free()
+				return
 		
 		var pierced : bool = try_to_pierce()
 		if pierced : 
@@ -84,7 +102,6 @@ func scan_for_chaining(previous_target : Balloon) -> bool :
 	balloons.erase(previous_target)
 	
 	if balloons.size() == 0 : return false
-	print("found %s balloons in range" %balloons.size())
 	
 	var new_target : Balloon = balloons.pick_random()
 	
@@ -127,9 +144,9 @@ func apply_augments() -> void :
 	var growth_magnitude : int = Augments.get_augment(growth_augment)
 	
 	if growth_magnitude : 
-		(collision_shape_2d.shape as CapsuleShape2D).radius += 2 * growth_magnitude
-		(collision_shape_2d.shape as CapsuleShape2D).height += 3 * growth_magnitude
-		sprite2d.scale += Vector2(0.05 * growth_magnitude, 0.05 * growth_magnitude)
+		(collision_shape_2d.shape as CapsuleShape2D).radius = 2 + 2 * growth_magnitude
+		(collision_shape_2d.shape as CapsuleShape2D).height = 38 + 3 * growth_magnitude
+		sprite2d.scale = Vector2(1.0 + 0.05 * growth_magnitude, 1.0 + 0.05 * growth_magnitude)
 	
 	
 	

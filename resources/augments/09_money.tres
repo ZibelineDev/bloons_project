@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://cgmmagi67d46q"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_j0gfu"]
+
+[resource]
+script = ExtResource("1_j0gfu")
+key = 10
+name = "Money"
+texture_path = "uid://cmpseasqsh6us"
+description = "+ 500 Money"
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

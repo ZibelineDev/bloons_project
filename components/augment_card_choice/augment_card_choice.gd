@@ -25,9 +25,11 @@ func initialise_choice() -> void :
 	first_card.inject_resource(Augments.pick_random_augment())
 	second_card.inject_resource(Augments.pick_random_augment())
 	third_card.inject_resource(Augments.pick_random_augment())
+	Sounds.play_ui_sound(Sounds.UISounds.AUGMENT_CHOICE)
 
 
 func on_augment_purchased(augment : RAugment) -> void : 
 	visible = false
 	(SpeedScale as ASpeedScale).toggle_pause(false)
 	Augments.purchase_augment(augment)
+	Sounds.play_ui_sound(Sounds.UISounds.AUGMENT_PICK)

@@ -6,6 +6,8 @@ enum UISounds {
 	BONG,
 	CLICK,
 	CONFIRMATION,
+	AUGMENT_CHOICE,
+	AUGMENT_PICK,
 }
 
 
@@ -27,6 +29,7 @@ func play_pew_pew() -> void :
 
 func play_bonk() -> void : 
 	if muted : return
+	bonk.pitch_scale = randf_range(0.9, 1.1)
 	bonk.play()
 
 
@@ -50,5 +53,7 @@ func play_ui_sound(ui_sound : UISounds) -> void :
 		UISounds.BONG : ui.stream = preload("uid://cufsoedewgyv2")
 		UISounds.CLICK : ui.stream = preload("uid://bjteg3mtddssj")
 		UISounds.CONFIRMATION : ui.stream = preload("uid://dpfcyf20r6b88")
+		UISounds.AUGMENT_CHOICE : ui.stream = preload("uid://x1otfldj7ivf")
+		UISounds.AUGMENT_PICK : ui.stream = preload("uid://cs4frf1sarflb")
 	
 	ui.play()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqarudu2l5vn7"]
+[gd_scene load_steps=5 format=3 uid="uid://bqarudu2l5vn7"]
 
 [ext_resource type="Script" uid="uid://cnemnvkeyt0i4" path="res://scenes/turret_info/turret_info.gd" id="1_frd0q"]
 [ext_resource type="LabelSettings" uid="uid://b73yi7bs12bt7" path="res://assets/styles/bold.tres" id="2_0uvy1"]
 [ext_resource type="PackedScene" uid="uid://b81vp2tj7wqi" path="res://components/upgrade_info/upgrade_info.tscn" id="2_dksgw"]
+[ext_resource type="StyleBox" uid="uid://cssdr5tmm6vvl" path="res://assets/styles/button_panel.tres" id="3_a31aj"]
 
 [node name="TurretInfo" type="VBoxContainer"]
 offset_right = 240.0
@@ -70,19 +71,39 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 224)
 layout_mode = 2
 
-[node name="Upgrade1" parent="UpgradeButtons" instance=ExtResource("2_dksgw")]
+[node name="PanelContainer" type="PanelContainer" parent="UpgradeButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_a31aj")
+
+[node name="Upgrade1" parent="UpgradeButtons/PanelContainer" instance=ExtResource("2_dksgw")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+flat = true
 
-[node name="Upgrade2" parent="UpgradeButtons" instance=ExtResource("2_dksgw")]
+[node name="PanelContainer2" type="PanelContainer" parent="UpgradeButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_a31aj")
+
+[node name="Upgrade2" parent="UpgradeButtons/PanelContainer2" instance=ExtResource("2_dksgw")]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+flat = true
 
-[node name="SellButton" type="Button" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_a31aj")
+
+[node name="SellButton" type="Button" parent="PanelContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Sell"
+flat = true

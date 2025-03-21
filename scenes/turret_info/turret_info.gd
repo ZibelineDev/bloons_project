@@ -36,9 +36,9 @@ func select(_turret : Turret) -> void :
 	visible = true
 	
 	if turret.resource.type == Turret.Types.HYPERSONIC : 
-		upgrade_2.visible = false
+		upgrade_2.get_parent().visible = false
 	else : 
-		upgrade_2.visible = true
+		upgrade_2.get_parent().visible = true
 
 
 func deselect() -> void : 

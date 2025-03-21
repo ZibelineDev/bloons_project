@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RAugment" load_steps=2 format=3 uid="uid://bjde1k0cwn6h"]
+
+[ext_resource type="Script" uid="uid://kpxaghg2tf2y" path="res://resources/augments/augment.gd" id="1_d7nym"]
+
+[resource]
+script = ExtResource("1_d7nym")
+key = 9
+name = "Med Pack"
+texture_path = "uid://opvccnw3k6lu"
+description = "+ 10 Lives."
+metadata/_custom_type_script = "uid://kpxaghg2tf2y"

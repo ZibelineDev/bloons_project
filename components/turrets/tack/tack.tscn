@@ -41,6 +41,7 @@ shape = SubResource("CircleShape2D_kk1w1")
 shape = SubResource("CircleShape2D_dyw8f")
 
 [node name="Button" parent="." index="6"]
+z_index = 2
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0

@@ -52,3 +52,6 @@ offset = Vector2(0, -8)
 
 [node name="Sprite2DPlaceholder" parent="." index="1"]
 visible = false
+
+[node name="Button" parent="." index="5"]
+z_index = 2

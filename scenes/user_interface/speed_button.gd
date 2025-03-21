@@ -8,11 +8,11 @@ func _ready() -> void :
 	pressed.connect(on_pressed)
 	(SpeedScale as ASpeedScale).began_bending_time.connect(
 		func() -> void :
-			text = "Bending Time"
+			text = "x 4"
 	)
 	(SpeedScale as ASpeedScale).stopped_bending_time.connect(
 		func() -> void : 
-			text = "Chilling"
+			text = "x 1"
 	)
 
 

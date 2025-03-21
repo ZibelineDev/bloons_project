@@ -10,4 +10,5 @@ func _input(event : InputEvent) -> void :
 
 
 func on_pressed() -> void : 
-	Waves.ref.initiate_wave()
+	if not SpeedScale.pause_toggled : 
+		Waves.ref.initiate_wave()

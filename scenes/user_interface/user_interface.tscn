@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=28 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -8,18 +8,23 @@
 [ext_resource type="StyleBox" uid="uid://cuhtjcphdy0uq" path="res://assets/styles/panel_style.tres" id="2_pvt6f"]
 [ext_resource type="Script" uid="uid://cio8antyxi7t7" path="res://scenes/user_interface/feedback_panel.gd" id="3_g6pv1"]
 [ext_resource type="Script" uid="uid://c50s11rutbtsj" path="res://scenes/user_interface/wave_button.gd" id="4_2dtu1"]
+[ext_resource type="Texture2D" uid="uid://b8fqfq218rbva" path="res://assets/textures/cog.png" id="4_pqjxk"]
+[ext_resource type="Script" uid="uid://dspan5eyn0m8v" path="res://scenes/user_interface/speed_button_margin.gd" id="4_rku1h"]
 [ext_resource type="Script" uid="uid://db7jp3q724l0f" path="res://scenes/user_interface/turret_shop_icon.gd" id="6_8wifb"]
 [ext_resource type="PackedScene" uid="uid://bqarudu2l5vn7" path="res://scenes/turret_info/turret_info.tscn" id="7_flq3v"]
 [ext_resource type="StyleBox" uid="uid://50gbrgft46ck" path="res://assets/styles/shop_icon_panel.tres" id="9_dvuog"]
 [ext_resource type="PackedScene" uid="uid://dj578mtugchn3" path="res://scenes/purchase_info/purchase_info.tscn" id="10_tfswy"]
 [ext_resource type="Script" uid="uid://w4queq5ektlr" path="res://scenes/user_interface/game_over.gd" id="13_01bs6"]
 [ext_resource type="PackedScene" uid="uid://dtjqbmoihy0gj" path="res://components/augment_card_choice/augment_card_choice.tscn" id="13_nxml3"]
+[ext_resource type="StyleBox" uid="uid://cssdr5tmm6vvl" path="res://assets/styles/button_panel.tres" id="14_ac828"]
 [ext_resource type="Script" uid="uid://2ipm4qbn6mfw" path="res://scenes/user_interface/button.gd" id="14_dvuog"]
 [ext_resource type="LabelSettings" uid="uid://criproiw2nlw8" path="res://assets/styles/header.tres" id="15_2eyu3"]
 [ext_resource type="Script" uid="uid://cbhb4g5e5vyp8" path="res://scenes/user_interface/escape_menu.gd" id="15_hs8v3"]
 [ext_resource type="Script" uid="uid://c6js4hep1sej4" path="res://scenes/user_interface/volume_slider.gd" id="16_hs8v3"]
 [ext_resource type="Script" uid="uid://cxyt0hdm0kxxu" path="res://scenes/user_interface/sss_confirmation.gd" id="19_gup0q"]
 [ext_resource type="Script" uid="uid://bdv2oxe4acun1" path="res://scenes/user_interface/check_box.gd" id="19_nxml3"]
+[ext_resource type="Script" uid="uid://c5a4vfcaws87v" path="res://scenes/user_interface/victory.gd" id="19_t2esm"]
+[ext_resource type="Script" uid="uid://qfah005m8k2t" path="res://scenes/user_interface/ui_slider.gd" id="21_46hr8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
 
@@ -50,19 +55,54 @@ size_flags_horizontal = 3
 mouse_filter = 2
 alignment = 2
 
-[node name="SpeedButton" type="MarginContainer" parent="UserInterface/MainPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/MainPanel"]
 layout_mode = 2
-size_flags_horizontal = 0
+
+[node name="MenuButton" type="MarginContainer" parent="UserInterface/MainPanel/HBoxContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="SpeedButton" type="Button" parent="UserInterface/MainPanel/SpeedButton"]
-custom_minimum_size = Vector2(160, 40)
+[node name="PanelContainer" type="PanelContainer" parent="UserInterface/MainPanel/HBoxContainer/MenuButton"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="MenuButton" type="TextureButton" parent="UserInterface/MainPanel/HBoxContainer/MenuButton/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("4_pqjxk")
+
+[node name="Control" type="Control" parent="UserInterface/MainPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpeedButtonMargin" type="MarginContainer" parent="UserInterface/MainPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 16
+script = ExtResource("4_rku1h")
+
+[node name="PanelContainer" type="PanelContainer" parent="UserInterface/MainPanel/HBoxContainer/SpeedButtonMargin"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="SpeedButton" type="Button" parent="UserInterface/MainPanel/HBoxContainer/SpeedButtonMargin/PanelContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "Chilling"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "x 1"
+flat = true
 script = ExtResource("2_axgoa")
 
 [node name="Space" type="Control" parent="UserInterface/MainPanel"]
@@ -400,12 +440,18 @@ theme_override_constants/margin_right = 16
 [node name="HSeparator" type="HSeparator" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/Separator3"]
 layout_mode = 2
 
-[node name="WaveButton" type="Button" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="WaveButton" type="Button" parent="UserInterface/RightPanel/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Start Wave"
+flat = true
 script = ExtResource("4_2dtu1")
 
 [node name="AugmentCardChoice" parent="." instance=ExtResource("13_nxml3")]
@@ -438,13 +484,100 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_pvt6f")
 
-[node name="Button" type="Button" parent="GameOver/CenterContainer/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="GameOver/CenterContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="Button" type="Button" parent="GameOver/CenterContainer/PanelContainer/PanelContainer"]
 custom_minimum_size = Vector2(320, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Try Again"
+flat = true
+script = ExtResource("14_dvuog")
+
+[node name="Victory" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19_t2esm")
+
+[node name="CenterContainer" type="CenterContainer" parent="Victory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Victory/CenterContainer"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_pvt6f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Victory/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Victory !"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="HSeparator" type="HSeparator" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="Body" type="Label" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "You've successfuly protected the top of the map from the unrelenting assault of nasty Balloons !
+
+Sadly all I have to offer you is this super cool Victory popup.
+I hope you do like it."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="Button" type="Button" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Play Again"
+flat = true
 script = ExtResource("14_dvuog")
 
 [node name="EscapeMenu" type="Panel" parent="."]
@@ -505,12 +638,12 @@ theme_override_constants/margin_right = 64
 [node name="VBoxContainer" type="VBoxContainer" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="SFXLabel" type="Label" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Sound Volume"
+text = "SFX Volume"
 horizontal_alignment = 1
 
-[node name="VolumeSlider" type="HSlider" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="SFXSlider" type="HSlider" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 max_value = 1.0
@@ -518,9 +651,22 @@ step = 0.1
 value = 1.0
 script = ExtResource("16_hs8v3")
 
+[node name="UILabel" type="Label" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Interface Volume"
+horizontal_alignment = 1
+
+[node name="UISlider" type="HSlider" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("21_46hr8")
+
 [node name="Label2" type="Label" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Super Secret Setting"
+text = "Sable's Secret Setting"
 horizontal_alignment = 1
 
 [node name="CheckBox" type="TextureButton" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -531,6 +677,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 stretch_mode = 4
 script = ExtResource("19_nxml3")
+
+[node name="PanelContainer" type="PanelContainer" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="ConfirmButton" type="Button" parent="EscapeMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Confirm"
+flat = true
 
 [node name="SSSConfirmation" type="Panel" parent="EscapeMenu"]
 unique_name_in_owner = true
@@ -569,7 +730,7 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Super Secret Setting"
+text = "Sable's Secret Setting"
 label_settings = ExtResource("15_2eyu3")
 horizontal_alignment = 1
 
@@ -585,7 +746,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
-text = "You're about to turn the Super Secret Setting on. This will Restart the game. Are your sure ?"
+text = "You're about to turn Sable's Secret Setting on. This will Restart the game. Are your sure ?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -594,14 +755,26 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Confirm" type="Button" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="Confirm" type="Button" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 64)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Confirm"
+flat = true
 
-[node name="Cancel" type="Button" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="Cancel" type="Button" parent="EscapeMenu/SSSConfirmation/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Cancel"
+flat = true

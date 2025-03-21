@@ -84,8 +84,6 @@ func select() -> void :
 	selected_turret = self
 	TurretInfo.ref.select(self)
 	range_indicator.visible = true
-	print("range : %0.1f" %resource.turret_range)
-	print("cooldown : %0.2f" %resource.cooldown)
 
 
 func deselect() -> void : 
@@ -204,7 +202,7 @@ func initialise_augments() -> void :
 		resource.turret_range += 15.0 * minor_range_magnitude
 		update_range()
 	
-	if resource.type == Turret.Types.DART or resource.type == Turret.Types.TACK or resource.type == Turret.Types.HYPERSONIC :
+	if resource.type == Turret.Types.DART or resource.type == Turret.Types.HYPERSONIC :
 		var dart_attack_speed_augment : RAugment = load(RAugment.dictionary[RAugment.Types.DART_ATTACK_SPEED])
 		var dart_attack_speed_magnitude : int = Augments.get_augment(dart_attack_speed_augment)
 		
@@ -217,5 +215,5 @@ func on_augment_purchased(augment : RAugment) -> void :
 		update_range()
 	
 	if augment.key == RAugment.Types.DART_ATTACK_SPEED : 
-		if resource.type == Turret.Types.DART or resource.type == Turret.Types.TACK or resource.type == Turret.Types.HYPERSONIC : 
+		if resource.type == Turret.Types.DART or resource.type == Turret.Types.HYPERSONIC : 
 			resource.cooldown -= 0.05

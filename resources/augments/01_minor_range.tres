@@ -6,6 +6,6 @@
 script = ExtResource("1_r4imi")
 key = 2
 name = "Minor Range"
-texture_path = "uid://bcxv5k8woabuu"
+texture_path = "uid://cfah6odpalrra"
 description = "Small range boost for all Units."
 metadata/_custom_type_script = "uid://kpxaghg2tf2y"
