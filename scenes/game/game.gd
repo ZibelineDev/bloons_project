@@ -39,7 +39,11 @@ func lose_life(quantity : int = 1) -> void :
 
 func game_over_func(just_won : bool = false) -> void : 
 	game_over.emit(just_won)
-	Engine.time_scale = 0.0
+	if not just_won : 
+		Engine.time_scale = 0.0
+	else : 
+		if SpeedScale.is_bending_time() :
+			SpeedScale.toggle()
 
 
 func reset() -> void : 

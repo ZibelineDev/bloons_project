@@ -11,7 +11,7 @@ func _ready() -> void :
 		func(just_won : bool) -> void : 
 			if just_won : 
 				Confetti.ref.play()
-				Sounds.play_ui_sound(Sounds.UISounds.VICTORY)
+				Sounds.play_victory()
 				visible = true
 				is_over = true
 	)

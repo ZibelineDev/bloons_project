@@ -88,8 +88,7 @@ func _physics_process(_delta : float) -> void :
 
 
 func initialise() -> void : 
-	completed_waves = 49
-	Game.ref.lose_life(-4000)
+	completed_waves = 0
 	wave_active = false
 	wave_completed.emit(completed_waves)
 
