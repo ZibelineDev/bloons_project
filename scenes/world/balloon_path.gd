@@ -88,7 +88,8 @@ func _physics_process(_delta : float) -> void :
 
 
 func initialise() -> void : 
-	completed_waves = 0
+	completed_waves = 49
+	Game.ref.lose_life(-4000)
 	wave_active = false
 	wave_completed.emit(completed_waves)
 
@@ -103,7 +104,10 @@ func initiate_wave() -> void :
 	spawn_completed = false
 	wave_initiated.emit(completed_waves + 1)
 	wave_resource = load(waves[completed_waves])
-	spawn_timer.wait_time = wave_resource.spawn_interval
+	if SSS.activated : 
+		spawn_timer.wait_time = wave_resource.spawn_interval
+	else :
+		spawn_timer.wait_time = 0.3
 	spawn_timer.start()
 	(Sounds as ASounds).play_ui_sound(ASounds.UISounds.CONFIRMATION)
 
@@ -114,6 +118,7 @@ func close_wave() -> void :
 		completed_waves += 1
 		wave_completed.emit(completed_waves)
 		Game.ref.game_over_func(true)
+		Sounds.play_ui_sound(Sounds.UISounds.VICTORY)
 		return
 	
 	wave_active = false
@@ -124,6 +129,8 @@ func close_wave() -> void :
 	UserInterface.ref.create_feedback(feedback)
 	completed_waves += 1
 	wave_completed.emit(completed_waves)
+	if not completed_waves == 51 : 
+		Sounds.play_ui_sound(Sounds.UISounds.WAVE_COMPLETE)
 	
 	if augment_waves.has(completed_waves) :
 		AugmentCardChoice.ref.initialise_choice()

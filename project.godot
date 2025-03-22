@@ -13,7 +13,9 @@ config_version=5
 config/name="bloons_project"
 run/main_scene="uid://csaoulddv4ffh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.172549, 0.176471, 0.188235, 1)
+boot_splash/image="uid://cn46yr8cmh0gn"
+config/icon="uid://d1pxrofft61ey"
 
 [autoload]
 

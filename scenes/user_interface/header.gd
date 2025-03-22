@@ -3,6 +3,6 @@ extends Label
 
 func _ready() -> void :
 	if SSS.activated : 
-		text = "Victory !"
+		text = "Victory ! (Augmented)"
 	else : 
-		text = "Hardcore Victory !" 
+		text = "Victory !" 

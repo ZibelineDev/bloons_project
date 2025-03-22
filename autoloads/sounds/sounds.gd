@@ -9,6 +9,7 @@ enum UISounds {
 	AUGMENT_CHOICE,
 	AUGMENT_PICK,
 	VICTORY,
+	WAVE_COMPLETE,
 }
 
 
@@ -54,8 +55,9 @@ func play_ui_sound(ui_sound : UISounds) -> void :
 		UISounds.BONG : ui.stream = preload("uid://cufsoedewgyv2")
 		UISounds.CLICK : ui.stream = preload("uid://bjteg3mtddssj")
 		UISounds.CONFIRMATION : ui.stream = preload("uid://dpfcyf20r6b88")
-		UISounds.AUGMENT_CHOICE : ui.stream = preload("uid://x1otfldj7ivf")
+		UISounds.AUGMENT_CHOICE : ui.stream = preload("uid://bot73fwrsm8ku")
 		UISounds.AUGMENT_PICK : ui.stream = preload("uid://cs4frf1sarflb")
-		UISounds.VICTORY : ui.stream = preload("uid://cs4frf1sarflb")
+		UISounds.VICTORY : ui.stream = preload("uid://cgdc2tfbtsu5s")
+		UISounds.WAVE_COMPLETE : ui.stream = preload("uid://b0lcj0dpn2h5j")
 	
 	ui.play()

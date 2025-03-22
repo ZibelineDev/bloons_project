@@ -61,4 +61,5 @@ bus = &"SFX"
 [node name="UI" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("13_jhovl")
+max_polyphony = 5
 bus = &"UI"

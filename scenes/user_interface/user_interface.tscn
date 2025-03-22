@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=33 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -21,11 +21,15 @@
 [ext_resource type="LabelSettings" uid="uid://criproiw2nlw8" path="res://assets/styles/header.tres" id="15_2eyu3"]
 [ext_resource type="Script" uid="uid://cbhb4g5e5vyp8" path="res://scenes/user_interface/escape_menu.gd" id="15_hs8v3"]
 [ext_resource type="Script" uid="uid://c6js4hep1sej4" path="res://scenes/user_interface/volume_slider.gd" id="16_hs8v3"]
+[ext_resource type="Script" uid="uid://bt4me8rvs3y1a" path="res://scenes/user_interface/confettis.gd" id="19_2wgbj"]
 [ext_resource type="Script" uid="uid://cxyt0hdm0kxxu" path="res://scenes/user_interface/sss_confirmation.gd" id="19_gup0q"]
 [ext_resource type="Script" uid="uid://bdv2oxe4acun1" path="res://scenes/user_interface/check_box.gd" id="19_nxml3"]
 [ext_resource type="Script" uid="uid://c5a4vfcaws87v" path="res://scenes/user_interface/victory.gd" id="19_t2esm"]
 [ext_resource type="Script" uid="uid://cuvdncjdtn817" path="res://scenes/user_interface/header.gd" id="20_54aa8"]
+[ext_resource type="Texture2D" uid="uid://ds2ufux4mnfyt" path="res://assets/textures/white_rectangle.png" id="20_f6fu7"]
 [ext_resource type="Script" uid="uid://qfah005m8k2t" path="res://scenes/user_interface/ui_slider.gd" id="21_46hr8"]
+[ext_resource type="Material" uid="uid://dwnr4gr7t33p0" path="res://assets/particles/bottom_right.tres" id="28_nmy4k"]
+[ext_resource type="Material" uid="uid://y4hxm0ipq5b5" path="res://assets/particles/bottom_left.tres" id="29_bt4h5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
 
@@ -502,85 +506,6 @@ text = "Try Again"
 flat = true
 script = ExtResource("14_dvuog")
 
-[node name="Victory" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("19_t2esm")
-
-[node name="CenterContainer" type="CenterContainer" parent="Victory"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Victory/CenterContainer"]
-custom_minimum_size = Vector2(800, 400)
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/panel = ExtResource("2_pvt6f")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Victory/CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Header" type="Label" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Victory !"
-horizontal_alignment = 1
-script = ExtResource("20_54aa8")
-
-[node name="MarginContainer" type="MarginContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_right = 64
-
-[node name="HSeparator" type="HSeparator" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_right = 32
-
-[node name="Body" type="Label" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2"]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-text = "You've successfuly protected the top of the map from the unrelenting assault of nasty Balloons !
-
-Sadly all I have to offer you is this super cool Victory popup.
-I hope you do like it."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Control" type="Control" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = ExtResource("14_ac828")
-
-[node name="Button" type="Button" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(320, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_mode = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Play Again"
-flat = true
-script = ExtResource("14_dvuog")
-
 [node name="EscapeMenu" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -779,3 +704,131 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Cancel"
 flat = true
+
+[node name="Victory" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19_t2esm")
+
+[node name="Confettis" type="Control" parent="Victory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_2wgbj")
+
+[node name="BottomRight" type="GPUParticles2D" parent="Victory/Confettis"]
+position = Vector2(1152, 864)
+emitting = false
+amount = 264
+texture = ExtResource("20_f6fu7")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.98
+process_material = ExtResource("28_nmy4k")
+
+[node name="BottomRight2" type="GPUParticles2D" parent="Victory/Confettis"]
+position = Vector2(1152, 864)
+emitting = false
+amount = 264
+texture = ExtResource("20_f6fu7")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.98
+process_material = ExtResource("28_nmy4k")
+
+[node name="BottomLeft" type="GPUParticles2D" parent="Victory/Confettis"]
+position = Vector2(0, 864)
+emitting = false
+amount = 264
+texture = ExtResource("20_f6fu7")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.98
+process_material = ExtResource("29_bt4h5")
+
+[node name="BottomLeft2" type="GPUParticles2D" parent="Victory/Confettis"]
+position = Vector2(0, 864)
+emitting = false
+amount = 264
+texture = ExtResource("20_f6fu7")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.98
+process_material = ExtResource("29_bt4h5")
+
+[node name="CenterContainer" type="CenterContainer" parent="Victory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Victory/CenterContainer"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_pvt6f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Victory/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Victory !"
+horizontal_alignment = 1
+script = ExtResource("20_54aa8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="HSeparator" type="HSeparator" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="Body" type="Label" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "You've successfuly protected the top of the map from the unrelenting assault of nasty Balloons !
+
+Sadly all I have to offer you is this super cool Victory popup.
+I hope you do like it."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Victory/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("14_ac828")
+
+[node name="Button" type="Button" parent="Victory/CenterContainer/PanelContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Play Again"
+flat = true
+script = ExtResource("14_dvuog")
