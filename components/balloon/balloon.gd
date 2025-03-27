@@ -138,7 +138,6 @@ func pop(dart_damage : bool = true) -> void :
 	if greed_magnitude >= 1 :
 		var roll : float = randf()
 		if roll <= greed_proc_rate :
-			print_rich("[color=ff18a6]Greeded 1 Money[/color]")
 			(Currency as ACurrency).create_currency(1)
 	
 	if level == 4 : 

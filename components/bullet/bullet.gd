@@ -158,7 +158,6 @@ func apply_augments() -> void :
 		var roll : int = randi_range(0, 99)
 		
 		if roll < chances : 
-			print_rich("[color=ff18a6]Extra pierce added to a Dart[/color]")
 			pierce += 1 
 	
 	
@@ -171,5 +170,4 @@ func apply_augments() -> void :
 		var chain_roll : int = randi_range(0, 99)
 		
 		if chain_roll < chain_chances : 
-			print_rich("[color=ff18a6]Extra chain added to a Dart[/color]")
 			chain += 1

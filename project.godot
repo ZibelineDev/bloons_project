@@ -14,8 +14,9 @@ config/name="bloons_project"
 run/main_scene="uid://csaoulddv4ffh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.172549, 0.176471, 0.188235, 1)
-boot_splash/image="uid://cn46yr8cmh0gn"
+boot_splash/image="uid://bnmwp0be4oris"
 config/icon="uid://d1pxrofft61ey"
+boot_splash/minimum_display_time=4000
 
 [autoload]
 

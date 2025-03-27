@@ -1,8 +1,8 @@
 class_name SSSCheckBox extends TextureButton
 
 
-var texture_unchecked : Texture2D = load("uid://cx1fcg3q0khwh")
-var texture_checked : Texture2D = load("uid://bb7xwy64538kg")
+var texture_unchecked : Texture2D = load("uid://cjsjh8fkugned")
+var texture_checked : Texture2D = load("uid://dvt37mm844rti")
 
 var checked : bool = false
 

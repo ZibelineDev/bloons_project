@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2ldgbb583gaj"]
+[gd_scene load_steps=36 format=3 uid="uid://d2ldgbb583gaj"]
 
 [ext_resource type="Script" uid="uid://dd01ctl8g123p" path="res://scenes/user_interface/user_interface.gd" id="1_cj8yd"]
 [ext_resource type="Script" uid="uid://cncjctkjk0bso" path="res://scenes/user_interface/currency.gd" id="1_e2uov"]
@@ -28,8 +28,11 @@
 [ext_resource type="Script" uid="uid://cuvdncjdtn817" path="res://scenes/user_interface/header.gd" id="20_54aa8"]
 [ext_resource type="Texture2D" uid="uid://ds2ufux4mnfyt" path="res://assets/textures/white_rectangle.png" id="20_f6fu7"]
 [ext_resource type="Script" uid="uid://qfah005m8k2t" path="res://scenes/user_interface/ui_slider.gd" id="21_46hr8"]
+[ext_resource type="Texture2D" uid="uid://cjsjh8fkugned" path="res://assets/ui/checkbox.svg" id="23_bt4h5"]
 [ext_resource type="Material" uid="uid://dwnr4gr7t33p0" path="res://assets/particles/bottom_right.tres" id="28_nmy4k"]
 [ext_resource type="Material" uid="uid://y4hxm0ipq5b5" path="res://assets/particles/bottom_left.tres" id="29_bt4h5"]
+[ext_resource type="Texture2D" uid="uid://d25lgp6d2434p" path="res://assets/check_settings_alternative.png" id="32_5xqkv"]
+[ext_resource type="Script" uid="uid://dm4q2g7dbv4n2" path="res://scenes/user_interface/hint.gd" id="33_lu75v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6pv1"]
 
@@ -601,6 +604,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture_normal = ExtResource("23_bt4h5")
 stretch_mode = 4
 script = ExtResource("19_nxml3")
 
@@ -706,6 +710,7 @@ text = "Cancel"
 flat = true
 
 [node name="Victory" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -832,3 +837,13 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Play Again"
 flat = true
 script = ExtResource("14_dvuog")
+
+[node name="Hint" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 18.0
+offset_right = 608.0
+offset_bottom = 161.0
+mouse_filter = 2
+texture = ExtResource("32_5xqkv")
+script = ExtResource("33_lu75v")
